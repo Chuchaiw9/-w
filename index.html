@@ -19,9 +19,9 @@
     <h1>นับถอยหลังวันครบรอบ</h1>
     <p class="sub">เราจะถึงวันครบรอบกันในอีก...</p>
 
-    <!-- การแจ้งเตือน -->
-    <div class="notification">
-      <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon">
+    <!-- การแจ้งเตือนจดหมาย -->
+    <div class="notification" id="loveNotification">
+      <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon" onclick="showLoveMessage()">
       <p id="loveMessage"></p>
     </div>
 
@@ -41,6 +41,9 @@
     <!-- ปุ่มสุ่มคำบอกรัก -->
     <button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
     <p id="love-message" class="love-message"></p>
+
+    <!-- ข้อความวันครบรอบ -->
+    <p id="anniversaryMessage" class="anniversary-message"></p> <!-- แสดงข้อความวันครบรอบ -->
   </div>
 
   <script>
@@ -69,6 +72,9 @@
       if (distance <= 0) {
         clearInterval(countdownInterval);
         countdownElement.innerHTML = "ถึงวันครบรอบแล้ว! 🎉";
+        
+        // แสดงข้อความวันครบรอบ
+        document.getElementById("anniversaryMessage").textContent = "สุขสันต์วันครบรอบนะคะ! ❤️🎉";
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -99,13 +105,19 @@
 
     setInterval(createGlitter, 100);
 
-    // ฟังก์ชั่นแจ้งเตือน
-    setTimeout(() => {
-      const alertBox = document.getElementById("love-alert");
-      if (alertBox) alertBox.remove();
-    }, 5000); // หายไปหลัง 5 วินาที
+    // ฟังก์ชั่นแจ้งเตือนจดหมาย
+    function displayLoveNotification() {
+      const loveNotification = document.getElementById("loveNotification");
+      loveNotification.style.display = "block"; // ทำให้แสดง
+      setTimeout(() => {
+        loveNotification.style.display = "none"; // ซ่อนหลังจาก 5 วินาที
+      }, 5000);
+    }
+
+    // เรียกใช้งานฟังก์ชั่นการแสดงแจ้งเตือนจดหมาย
+    displayLoveNotification();
   </script>
-  
+
   <!-- ไฟล์ JavaScript -->
   <script src="script.js"></script>
 

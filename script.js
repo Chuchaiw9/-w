@@ -46,31 +46,3 @@ function showLoveMessage() {
     msgEl.style.opacity = 1;
     msgEl.style.transform = "scale(1)";
   }, 50);
-}
-/* สไตล์ปุ่มจดหมาย */
-.love-letter {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #ff4da6;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.love-letter:hover {
-  transform: scale(1.1);
-}
-
-/* ปรับข้อความจดหมาย */
-#loveMessage {
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-  display: none; /* ซ่อนข้อความในตอนแรก */
-  transition: opacity 0.5s ease-in-out;
-  }

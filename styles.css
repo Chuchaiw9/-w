@@ -245,33 +245,38 @@ button:hover {
 #love-button:hover {
   background-color: #ff1493; /* เปลี่ยนสีเมื่อวางเมาส์ */
 }
-/* สไตล์สำหรับปุ่มจดหมายรัก */
-.love-letter {
+/* สไตล์การแจ้งเตือน */
+.notification {
+  display: flex;
+  align-items: center;
+  background-color: #ffb6c1;
+  padding: 15px;
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
-  background-color: #ff4da6;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  visibility: hidden; /* ซ่อนไว้ก่อน */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-#loveLetterButton {
-  background-color: #ffffff;
-  color: #ff4da6;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
+.notification-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
-#loveLetterButton:hover {
-  background-color: #ff4da6;
-  color: #ffffff;
+.notification p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
 }
 
-#loveMessage {
-  font-size: 14px;
-  color: #333;
-  margin-top: 10px;
+/* คลาสเมื่อการแจ้งเตือนถูกแสดง */
+.notification.show {
+  visibility: visible;
+  opacity: 1;
 }
+

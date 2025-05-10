@@ -245,3 +245,33 @@ button:hover {
 #love-button:hover {
   background-color: #ff1493; /* เปลี่ยนสีเมื่อวางเมาส์ */
 }
+/* สไตล์สำหรับปุ่มจดหมายรัก */
+.love-letter {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4da6;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#loveLetterButton {
+  background-color: #ffffff;
+  color: #ff4da6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#loveLetterButton:hover {
+  background-color: #ff4da6;
+  color: #ffffff;
+}
+
+#loveMessage {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}

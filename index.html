@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Anniversary</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="top-marquee-box">
+  <div class="top-marquee-text">
+    มีอะไรจะบอกก็คือออออออออ!เค้ารักอ้วนมากที่สุดในจักรวาลนี้เลยน้าาาาา!
+  </div>
+</div>
+  <div class="container">
+    <h1>นับถอยหลังวันครบรอบบ</h1>
+    <p class="sub">เราจะถึงวันครบรอบกันในอีก...</p>
+
+<div id="love-alert" class="love-alert">
+  <p>⚠️ คำเตือน: โปรดอ่านก่อน! คนสร้างเว็บนี้รักคุณมาก ❤️💫</p>
+</div>
+<script>
+  setTimeout(() => {
+    const alertBox = document.getElementById("love-alert");
+    if (alertBox) alertBox.remove();
+  }, 5000); // หายไปหลัง 5 วินาที
+</script>
+<script>
+  // สร้างกลิตเตอร์หลายๆ อัน
+  function createGlitter() {
+    const glitter = document.createElement('div');
+    glitter.classList.add('glitter');
+    document.body.appendChild(glitter);
+
+    // ตั้งตำแหน่งที่กลิตเตอร์ตกลงมา
+    glitter.style.left = `${Math.random() * window.innerWidth}px`;
+
+    // ลบหลังจากเคลื่อนที่ไปแล้ว
+    setTimeout(() => {
+      glitter.remove();
+    }, 5000);
+  }
+
+  // สร้างกลิตเตอร์ใหม่ทุกๆ 100ms
+  setInterval(createGlitter, 100);
+</script>
+    <div id="countdown">
+      <div class="time"><span id="days">00</span><label>วัน</label></div>
+      <div class="time"><span id="hours">00</span><label>ชั่วโมง</label></div>
+      <div class="time"><span id="minutes">00</span><label>นาที</label></div>
+      <div class="time"><span id="seconds">00</span><label>วินาที</label></div>
+    </div>
+
+    <button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
+    <p id="love-message" class="love-message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

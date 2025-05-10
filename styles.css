@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffc0cb, #ffe6f0);
+  font-family: 'Kanit', sans-serif;
+  color: #d6336c;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #ffffffdd;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #ffb6c1;
+  max-width: 400px;
+  width: 90%;
+  animation: popin 0.8s ease;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.sub {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.time {
+  background: #ffdde5;
+  padding: 10px;
+  border-radius: 15px;
+  width: 70px;
+  animation: bounce 1s infinite alternate;
+  box-shadow: 0 0 10px #ffb6c1aa;
+}
+
+.time span {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.time label {
+  font-size: 14px;
+}
+
+button {
+  background: #ff6fa4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px #ff99bb88;
+}
+
+button:hover {
+  background: #ff488c;
+  transform: scale(1.05);
+}
+
+.love-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #c2185b;
+  animation: fadein 0.5s ease;
+}
+
+/* ลูกเล่นเคลื่อนไหว */
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popin {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes glitter {
+  0% { transform: translateY(-10px); opacity: 0.8; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.glitter {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background-color: #ff99cc;
+  border-radius: 50%;
+  animation: glitter 3s linear infinite;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.glitter:nth-child(odd) {
+  animation-duration: 4s;
+  background-color: #f5a7d1;
+}
+
+.glitter:nth-child(even) {
+  animation-duration: 5s;
+  background-color: #ffb6c1;
+}
+.love-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: #ffb6c1;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeInPop 0.8s ease-out, fadeOut 1s ease-in 4s forwards;
+  z-index: 9999;
+}
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+.container {
+  width: 90%; /* ทำให้กรอบกว้างขึ้น */
+  max-width: 800px; /* ตั้งขนาดสูงสุด */
+  margin: 50px auto; /* กำหนดให้กลางจอและมีระยะห่างข้างบน */
+  padding: 30px; /* เพิ่มช่องว่างรอบๆ */
+  background: #fff(255, 182, 193, 0.8); /* สีพื้นหลังโปร่งใส */
+  border-radius: 15px; /* มุมโค้ง */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* เงาบางๆ */
+}
+.container h1 {
+  font-size: 36px; /* ขนาดตัวอักษรหัวข้อใหญ่ขึ้น */
+}
+
+.container .sub {
+  font-size: 18px; /* ขนาดข้อความย่อยใหญ่ขึ้น */
+}
+
+#countdown .time span {
+  font-size: 40px; /* ขยายตัวเลขนับถอยหลัง */
+}
+#love-button {
+  font-size: 50px; /* ขนาดตัวอักษรของปุ่ม */
+  padding: 80px 100px; /* ขยายขนาดปุ่ม */
+  border-radius: 30px; /* มุมโค้ง */
+  background-color: #ff69b4; /* สีพื้นหลังปุ่ม */
+  color: white; /* ตัวอักษรสีขาว */
+  border: none; /* ไม่มีเส้นขอบ */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือ */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เงาปุ่ม */
+}
+
+#love-button:hover {
+  background-color: #ff1493; /* เปลี่ยนสีตอนเอาเมาส์ไปอยู่เหนือปุ่ม */
+}
+.container .time {
+  margin-bottom: 20px; /* ห่างกันระหว่างเวลาทั้งหมด */
+}
+
+.container button {
+  margin-top: 20px; /* ห่างจากเนื้อหาข้างบน */
+}
+.top-marquee-box {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffc0cb;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 0 2px 10px rgba(255, 182, 193, 0.6);
+}
+
+.top-marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-top 15s linear infinite;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2em;
+  padding-left: 100%;
+}
+
+@keyframes scroll-top {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* ปรับขนาดปุ่มสุ่มคำบอกรัก */
+#love-button {
+  font-size: 1.5em; /* ขนาดตัวอักษร */
+  padding: 15px 30px; /* ขนาดของปุ่ม */
+  background-color: #ff69b4; /* สีพื้นหลัง */
+  color: white; /* สีตัวอักษร */
+  border: none; /* ไม่ให้มีเส้นขอบ */
+  border-radius: 10px; /* มุมโค้งมน */
+  cursor: pointer; /* แสดงว่าเป็นปุ่มที่คลิกได้ */
+  transition: background-color 0.3s ease; /* ทำให้ปุ่มมีการเปลี่ยนสี */
+}
+
+#love-button:hover {
+  background-color: #ff1493; /* เปลี่ยนสีเมื่อวางเมาส์ */
+}

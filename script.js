@@ -54,24 +54,27 @@ const loveMessages = [
   "ขอบคุณที่ทำให้ทุกวันของฉันมีความหมาย",
   "อยู่กับแพรวาแล้วเรามีความสุขมาก",
 ];
+function displayLoveNotification(message) {
+  const loveNotification = document.getElementById("loveNotification");
+  const loveMessage = document.getElementById("loveMessage");
+  loveMessage.textContent = message;  // ใส่ข้อความแจ้งเตือน
 
-// เลือกการแจ้งเตือนและข้อความ
-const notification = document.querySelector(".notification");
-const loveMessageDisplay = document.getElementById("loveMessage");
-
-// ฟังก์ชั่นแสดงการแจ้งเตือน
-function showLoveNotification() {
-  const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-  loveMessageDisplay.textContent = randomMessage;  // แสดงข้อความใน <p>
+  // แสดงแจ้งเตือน
+  loveNotification.style.display = "block";
   
-  // ทำให้การแจ้งเตือนแสดงขึ้น
-  notification.classList.add("show");
+  // เล่นเสียงแจ้งเตือน
+  const audio = new Audio("https://www.soundjay.com/button/beep-07.wav"); // เสียงแจ้งเตือน
+  audio.play();
 
-  // ซ่อนการแจ้งเตือนหลัง 5 วินาที
+  // ซ่อนแจ้งเตือนหลังจาก 5 วินาที
   setTimeout(() => {
-    notification.classList.remove("show");
+    loveNotification.style.display = "none";
   }, 5000);
 }
 
-// เรียกฟังก์ชั่นเมื่อหน้าโหลด
-window.onload = showLoveNotification;
+// เรียกใช้ฟังก์ชันแสดงการแจ้งเตือน
+window.onload = function() {
+  setTimeout(() => {
+    displayLoveNotification("มีข้อความใหม่จากคนพิเศษ! ❤️");
+  }, 2000); // แจ้งเตือนหลังจาก 2 วินาทีเมื่อหน้าเว็บโหลดเสร็จ
+};

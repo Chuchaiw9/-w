@@ -245,38 +245,26 @@ button:hover {
 #love-button:hover {
   background-color: #ff1493; /* เปลี่ยนสีเมื่อวางเมาส์ */
 }
-/* สไตล์การแจ้งเตือน */
 .notification {
-  display: flex;
-  align-items: center;
-  background-color: #ffb6c1;
-  padding: 15px;
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
+  background-color: #ffcc00;
+  padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  visibility: hidden; /* ซ่อนไว้ก่อน */
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  display: none;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .notification-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
   margin-right: 10px;
 }
 
 .notification p {
   margin: 0;
   font-size: 16px;
-  font-weight: bold;
-  color: #fff;
+  color: #000;
 }
-
-/* คลาสเมื่อการแจ้งเตือนถูกแสดง */
-.notification.show {
-  visibility: visible;
-  opacity: 1;
-}
-

@@ -6,47 +6,31 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="top-marquee-box">
-  <div class="top-marquee-text">
-    มีอะไรจะบอกก็คือออออออออ!เค้ารักอ้วนมากที่สุดในจักรวาลนี้เลยน้าาาาา!
+
+  <!-- Marquee (ข้อความเลื่อน) -->
+  <div class="top-marquee-box">
+    <div class="top-marquee-text">
+      มีอะไรจะบอกก็คือออออออออ!เค้ารักอ้วนมากที่สุดในจักรวาลนี้เลยน้าาาาา!
+    </div>
   </div>
-</div>
+
+  <!-- นับถอยหลัง -->
   <div class="container">
-    <h1>นับถอยหลังวันครบรอบบ</h1>
+    <h1>นับถอยหลังวันครบรอบ</h1>
     <p class="sub">เราจะถึงวันครบรอบกันในอีก...</p>
+
     <!-- การแจ้งเตือน -->
-<div class="notification">
-  <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon">
-  <p id="loveMessage"></p>
-</div>
-<div id="love-alert" class="love-alert">
-  <p>⚠️ คำเตือน: โปรดอ่านก่อน! คนสร้างเว็บนี้รักคุณมาก ❤️💫</p>
-</div>
-<script>
-  setTimeout(() => {
-    const alertBox = document.getElementById("love-alert");
-    if (alertBox) alertBox.remove();
-  }, 5000); // หายไปหลัง 5 วินาที
-</script>
-<script>
-  // สร้างกลิตเตอร์หลายๆ อัน
-  function createGlitter() {
-    const glitter = document.createElement('div');
-    glitter.classList.add('glitter');
-    document.body.appendChild(glitter);
+    <div class="notification">
+      <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon">
+      <p id="loveMessage"></p>
+    </div>
 
-    // ตั้งตำแหน่งที่กลิตเตอร์ตกลงมา
-    glitter.style.left = `${Math.random() * window.innerWidth}px`;
+    <!-- ข้อความเตือน -->
+    <div id="love-alert" class="love-alert">
+      <p>⚠️ คำเตือน: โปรดอ่านก่อน! คนสร้างเว็บนี้รักคุณมาก ❤️💫</p>
+    </div>
 
-    // ลบหลังจากเคลื่อนที่ไปแล้ว
-    setTimeout(() => {
-      glitter.remove();
-    }, 5000);
-  }
-
-  // สร้างกลิตเตอร์ใหม่ทุกๆ 100ms
-  setInterval(createGlitter, 100);
-</script>
+    <!-- นับถอยหลัง -->
     <div id="countdown">
       <div class="time"><span id="days">00</span><label>วัน</label></div>
       <div class="time"><span id="hours">00</span><label>ชั่วโมง</label></div>
@@ -54,10 +38,76 @@
       <div class="time"><span id="seconds">00</span><label>วินาที</label></div>
     </div>
 
+    <!-- ปุ่มสุ่มคำบอกรัก -->
     <button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
     <p id="love-message" class="love-message"></p>
   </div>
 
+  <script>
+    // ฟังก์ชั่นสุ่มคำบอกรัก
+    const loveMessages = [
+      "รักแพรวามากๆ เลยนะรู้ไหม",
+      "พ.น. รักแพรวาาาา ❤️",
+      "เธอคือคนที่ทำให้ทุกวันของฉันมีความหมาย",
+      "รักกันมากๆ นะ! ทุกวันทุกเวลา ❤️",
+      "เธอทำให้โลกนี้สดใสขึ้นมาก",
+    ];
+
+    function showLoveMessage() {
+      const randomIndex = Math.floor(Math.random() * loveMessages.length);
+      document.getElementById("love-message").textContent = loveMessages[randomIndex];
+    }
+
+    // ฟังก์ชั่นนับถอยหลัง
+    const countdownDate = new Date("2025-05-17T00:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.innerHTML = "ถึงวันครบรอบแล้ว! 🎉";
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+      }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // ฟังก์ชั่นกลิตเตอร์
+    function createGlitter() {
+      const glitter = document.createElement('div');
+      glitter.classList.add('glitter');
+      document.body.appendChild(glitter);
+
+      glitter.style.left = `${Math.random() * window.innerWidth}px`;
+
+      setTimeout(() => {
+        glitter.remove();
+      }, 5000);
+    }
+
+    setInterval(createGlitter, 100);
+
+    // ฟังก์ชั่นแจ้งเตือน
+    setTimeout(() => {
+      const alertBox = document.getElementById("love-alert");
+      if (alertBox) alertBox.remove();
+    }, 5000); // หายไปหลัง 5 วินาที
+  </script>
+  
+  <!-- ไฟล์ JavaScript -->
   <script src="script.js"></script>
+
 </body>
 </html>

@@ -1,4 +1,25 @@
-// ฟังก์ชันสุ่มคำบอกรัก
+const targetDate = new Date("2025-05-17T00:00:00");
+const countdownEl = document.getElementById("countdown");
+const popup = document.getElementById("anniversaryPopup");
+const canvas = document.getElementById("heartCanvas");
+const ctx = canvas.getContext("2d");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
+  if (diff <= 0) {
+    countdownEl.textContent = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!";
+    popup.style.display = "flex";
+    return;
+  }
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.textContent = `เหลืออีก ${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ`;
+}
+
 function showLoveMessage() {
   const messages = [
     "รักแพรวามากที่สุดในโลก!",
@@ -11,33 +32,69 @@ function showLoveMessage() {
   document.getElementById("love-message").textContent = randomMsg;
 }
 
-// ฟังก์ชันเปิด/ปิดซองจดหมาย
-const envelope = document.getElementById('envelope');
-function toggleLetter() {
-  envelope.classList.toggle('open');
-}
-
-// ตัวจับเวลานับวันครบรอบ
-const countdownDate = new Date("2025-05-17").getTime(); // วันที่ครบรอบ 1 เดือน
-const countdownElement = document.getElementById("countdown");
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = countdownDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  countdownElement.textContent = `${days} วัน`;
-
-  if (distance < 0) {
-    clearInterval(interval);
-    countdownElement.textContent = "ครบ 1 เดือนแล้ว!";
-    document.getElementById("anniversaryPopup").style.display = "flex";
-  }
-}
-
-const interval = setInterval(updateCountdown, 1000);
-
-// ปิดป๊อปอัพ
 function closePopup() {
-  document.getElementById("anniversaryPopup").style.display = "none";
+  popup.style.display = "none";
+}
+
+// Heart animation
+let hearts = [];
+function createHeart() {
+  hearts.push({
+    x: Math.random() * canvas.width,
+    y: canvas.height + 20,
+    size: Math.random() * 20 + 10,
+    speed: Math.random() * 2 + 1
+  });
+}
+function drawHearts() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < hearts.length; i++) {
+    let h = hearts[i];
+    ctx.save();
+    ctx.translate(h.x, h.y);
+    ctx.scale(h.size / 30, h.size / 30); // ปรับขนาดหัวใจ
+    ctx.beginPath();
+    ctx.moveTo(0, -10);
+    ctx.bezierCurveTo(-15, -30, -40, -5, 0, 20);
+    ctx.bezierCurveTo(40, -5, 15, -30, 0, -10);
+    ctx.fillStyle = "#ff66a3";
+    ctx.fill();
+    ctx.restore();
+
+    h.y -= h.speed;
+  }
+  hearts = hearts.filter(h => h.y + h.size > 0);
+}
+
+function animate() {
+  drawHearts();
+  requestAnimationFrame(animate);
+}
+
+setInterval(updateCountdown, 1000);
+setInterval(createHeart, 3000);
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const startDate = new Date("2025-04-17"); // วันเริ่มคบ
+function update() {
+  const today = new Date(); // ใช้วันปัจจุบัน
+  const diffTime = today - startDate;
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // คำนวณเป็นจำนวนวัน
+  document.getElementById("loveDays").textContent = `เราอยู่ด้วยกันมาแล้ว ${days} วัน`; // แสดงผล
+}
+
+update(); // เรียกใช้ฟังก์ชันนี้ทันที
+
+setInterval(update, 1000); // อัพเดททุกๆ 1 วินาที
+
+function toggleLetter() {
+  const envelope = document.querySelector('.envelope');
+  envelope.classList.toggle('open');
 }

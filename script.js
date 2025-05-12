@@ -1,80 +1,50 @@
-// วันที่เริ่มคบ
-const startDate = new Date("2025-04-17");
-
-// อัปเดตจำนวนวันที่คบกัน
+// คำนวณวันคบกัน
 function updateDaysTogether() {
+  const startDate = new Date("2025-04-17");
   const today = new Date();
-  const timeDiff = today - startDate;
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  document.getElementById("daysTogether").textContent = `${days} วัน`;
+  const diffTime = Math.abs(today - startDate);
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("days-together").textContent = `เราคบกันมาแล้ว ${diffDays} วัน`;
 }
-updateDaysTogether();
 
-// นับถอยหลังถึงวันครบรอบรายเดือน
+// ตัวนับถอยหลังถึงวันครบรอบ 1 เดือน
 function updateCountdown() {
+  const targetDate = new Date("2025-05-17T00:00:00");
   const now = new Date();
-  const currentMonth = now.getMonth() + 1;
-  const currentYear = now.getFullYear();
+  const distance = targetDate - now;
 
-  // กำหนดวันครบรอบเดือนถัดไป
-  let nextMonth = currentMonth + 1;
-  let year = currentYear;
-  if (nextMonth > 12) {
-    nextMonth = 1;
-    year += 1;
+  if (distance <= 0) {
+    document.getElementById("countdown").innerHTML = "<strong>สุขสันต์วันครบรอบ 1 เดือนนะแพรวา!</strong>";
+    return;
   }
 
-  const targetDate = new Date(`${year}-${String(nextMonth).padStart(2, '0')}-17T00:00:00`);
-  const diff = targetDate - now;
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / 1000 / 60) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("countdown").textContent = 
-    `อีก ${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ ถึงวันครบรอบ`;
-
-  setTimeout(updateCountdown, 1000);
+  document.getElementById("countdown").innerHTML =
+    `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
 }
-updateCountdown();
 
-// สุ่มคำบอกรัก
+// คำบอกรักสุ่มให้แพรวา
 const loveMessages = [
-  "รักแพรวาทุกวันเลยนะ",
-  "คิดถึงแพรวาทุกวินาที",
-  "ขอบคุณที่เข้ามาในชีวิตนะ",
-  "ถ้ารักคือเพลง เธอคือเพลงที่ดีที่สุดของฉัน",
-  "อยู่ห่างกันแต่ใจอยู่ใกล้เสมอ"
+  "รักแพรวาที่สุดในโลกเลย ",
+  "ถึงอยู่ไกลแต่ใจเราอยู่ด้วยกันนะ",
+  "แพรวาคือหัวใจของเค้านะ",
+  "คิดถึงทุกวันเลยนะครับ",
+  "ถ้ามี 100 ชีวิต เข้าก็รักแพรวาทุกชีวิตเลย",
+  "ยิ้มของแพรวาทำให้วันของเราสดใสขึ้นเสมอ",
+  "แค่เห็นชื่อแพรวาก็ยิ้มได้แล้ว",
+  "รักนะไอ้เด็กดื้อของพี่"
 ];
 
-function randomLoveMessage() {
-  const index = Math.floor(Math.random() * loveMessages.length);
-  document.getElementById("loveMessage").textContent = loveMessages[index];
+function showRandomLoveMessage() {
+  const randomIndex = Math.floor(Math.random() * loveMessages.length);
+  document.getElementById("love-message").textContent = loveMessages[randomIndex];
 }
 
-// เกมสุ่มหัวใจ
-function guessHeart() {
-  const answer = Math.floor(Math.random() * 3) + 1;
-  const guess = prompt("ทายว่าหัวใจอยู่ในกล่องเบอร์ไหน (1-3)?");
-  if (parseInt(guess) === answer) {
-    alert("เก่งจังเลยยย หัวใจของเราตรงกัน!");
-  } else {
-    alert(`ไม่เป็นไร ลองใหม่ได้นะ หัวใจอยู่ในกล่อง ${answer}`);
-  }
-}
-
-// แสดงหัวใจลอยขึ้นเรื่อยๆ
-function createFloatingHearts() {
-  const container = document.querySelector(".floating-hearts");
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart-float";
-    heart.style.left = `${Math.random() * 100}%`;
-    heart.style.background = ["red", "pink", "#ff69b4"][Math.floor(Math.random() * 3)];
-    heart.style.width = heart.style.height = `${Math.random() * 20 + 10}px`;
-    container.appendChild(heart);
-    setTimeout(() => container.removeChild(heart), 5000);
-  }, 500);
-}
-createFloatingHearts();
+// เริ่มทำงาน
+updateDaysTogether();
+updateCountdown();
+setInterval(updateCountdown, 1000);

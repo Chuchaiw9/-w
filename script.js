@@ -69,7 +69,7 @@ function animate() {
 }
 
 setInterval(updateCountdown, 1000);
-setInterval(createHeart, 1500);
+setInterval(createHeart, 3000);
 animate();
 
 window.addEventListener("resize", () => {

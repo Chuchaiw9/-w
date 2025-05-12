@@ -134,3 +134,16 @@ canvas#heartCanvas {
     opacity: 0;
   }
 }
+.couple-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* ระยะห่างระหว่างรูป */
+  margin-top: 30px;
+}
+
+.couple-images img {
+  width: 150px; /* ขนาดของรูป */
+  height: 150px; /* ขนาดของรูป */
+  border-radius: 50%; /* ทำให้รูปเป็นทรงกลม */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}

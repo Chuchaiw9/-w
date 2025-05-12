@@ -18,7 +18,10 @@
 
     <p id="loveDays"></p>
 
+    <!-- ปุ่มสุ่มคำบอกรัก -->
     <button onclick="showLoveMessage()" class="love-button">สุ่มคำบอกรัก</button>
+
+    <!-- กล่องแสดงข้อความ -->
     <div id="love-message" class="love-message"></div>
 
     <div class="popup" id="anniversaryPopup">
@@ -38,7 +41,6 @@
     </div>
   </div>
 
-  <!-- ซองจดหมาย -->
   <div class="letter-container">
     <div class="envelope" id="envelope" onclick="toggleLetter()">
       <div class="flap"></div>
@@ -49,6 +51,19 @@
   </div>
 
   <script>
+    // ฟังก์ชันสุ่มคำบอกรัก
+    function showLoveMessage() {
+      const messages = [
+        "รักแพรวามากที่สุดในโลก!",
+        "ถึงจะอยู่ไกลแต่ใจใกล้เสมอ",
+        "คิดถึงเธอทุกวันเลยนะ",
+        "อยู่ด้วยกันตลอดไปนะ",
+        "แพรวาคือคนพิเศษของเค้า"
+      ];
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById("love-message").textContent = randomMsg;
+    }
+
     // การเปิดปิดซองจดหมาย
     const envelope = document.getElementById('envelope');
     function toggleLetter() {
@@ -56,4 +71,3 @@
     }
   </script>
 </body>
-</html>

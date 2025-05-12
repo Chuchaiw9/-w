@@ -1,56 +1,69 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ff6b6b, #f7b7a3);
-    color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  font-family: 'Sriracha', cursive;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffe0ec);
+  color: #ff4081;
+  text-align: center;
 }
 
-#header {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    color: white;
+.top-banner {
+  background-color: #ff4081;
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 20px;
+  text-shadow: 2px 2px 5px white;
+}
+
+.countdown-box {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
 }
 
 #countdown {
-    font-size: 48px;
-    margin-top: 20px;
+  font-size: 24px;
+  color: #d81b60;
+  margin-top: 10px;
 }
 
-.btn {
-    background-color: #ff6b6b;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 30px;
-    border-radius: 5px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+.love-box {
+  margin-top: 40px;
 }
 
-.btn:hover {
-    background-color: #ff4c4c;
+button {
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.love-messages {
-    font-size: 18px;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
+button:hover {
+  background-color: #e91e63;
 }
 
-.love-messages p {
-    margin: 0;
+#loveMessageBox {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #880e4f;
 }

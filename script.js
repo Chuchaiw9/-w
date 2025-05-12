@@ -82,6 +82,7 @@ window.addEventListener("resize", () => {
 });
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 const startDate = new Date("2025-04-17"); // วันเริ่มคบ
 setInterval(() => {
   const today = new Date();

@@ -92,3 +92,43 @@ canvas#heartCanvas {
   pointer-events: none;
   z-index: 1;
 }
+.heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  transform: rotate(45deg);
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart::after {
+  left: -15px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}

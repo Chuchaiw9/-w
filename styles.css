@@ -1,79 +1,94 @@
+/* styles.css */
 body {
-  font-family: 'Kanit', sans-serif;
-  background: linear-gradient(to bottom, #ffe0f0, #ffe0ff);
   margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #333;
+  font-family: 'Itim', cursive;
+  background: linear-gradient(to bottom, #ffe4ec, #ffe6fa);
+  overflow-x: hidden;
 }
 
-.marquee {
-  background-color: #ffccf2;
-  color: #99004d;
+.love-marquee {
+  background-color: #ff99cc;
+  color: white;
   padding: 10px;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 1.2em;
 }
 
 .container {
-  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
 }
 
-h1 {
-  font-size: 26px;
-  color: #cc0066;
+.heading {
+  font-size: 2em;
+  color: #d63384;
+  margin-bottom: 20px;
 }
 
 .countdown {
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 20px;
-  padding: 20px 30px;
-  background: linear-gradient(135deg, #ff99cc, #ff66b2);
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  font-size: 1.5em;
+  background-color: white;
+  padding: 15px;
+  border-radius: 20px;
   display: inline-block;
-  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  color: #d63384;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
-}
-
-.video-container {
-  margin: 40px auto;
+.video {
   width: 90%;
   max-width: 500px;
+  height: 280px;
+  margin: 20px 0;
   border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.love-box {
-  margin-top: 30px;
-}
-
-button {
-  background-color: #ff66b2;
+.love-button {
+  background-color: #ff66a3;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-button:hover {
-  background-color: #e60073;
-}
-
-#love-message {
+.love-message {
   margin-top: 20px;
-  font-size: 18px;
-  color: #cc0066;
+  font-size: 1.2em;
+  color: #b30059;
+  min-height: 30px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  color: #d63384;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+canvas#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
 }

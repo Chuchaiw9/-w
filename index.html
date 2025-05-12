@@ -1,25 +1,38 @@
-<!DOCTYPE html>
-<html lang="th">
+<!DOCTYPE html><html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>รักแพรวา</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Happy Anniversary</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="top-banner">รักแพรวาของเค้า - ครบรอบ 17 เม.ย. 2025</div>
-  <div class="container">
-    <h1>รักแพรวาทุกวันเลยนะ</h1>
-    <div class="countdown-box">
-      <h2>เวลาเหลือถึงวันครบรอบถัดไป</h2>
-      <div id="countdown"></div>
+  <div class="top-marquee-box">
+    <div class="top-marquee-text">
+      มีอะไรจะบอกก็คือออออออออ! เค้ารักอ้วนมากที่สุดในจักรวาลนี้เลยน้าาาาา!
     </div>
-    <div class="love-box">
-      <button onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
-      <p id="loveMessageBox"></p>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+  </div>  <div class="floating-hearts"></div>  <div class="container">
+    <h1>นับถอยหลังวันครบรอบ</h1>
+    <p class="sub">เราจะถึงวันครบรอบกันในอีก...</p><div id="loveNotification" class="notification" style="display: none;">
+  <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon">
+  <p id="loveMessage"></p>
+</div>
+
+<div id="love-alert" class="love-alert">
+  <p>⚠️ คำเตือน: โปรดอ่านก่อน! คนสร้างเว็บนี้รักคุณมาก ❤️💫</p>
+</div>
+
+<div id="countdown">
+  <div class="time"><span id="days">00</span><label>วัน</label></div>
+  <div class="time"><span id="hours">00</span><label>ชั่วโมง</label></div>
+  <div class="time"><span id="minutes">00</span><label>นาที</label></div>
+  <div class="time"><span id="seconds">00</span><label>วินาที</label></div>
+</div>
+
+<button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
+<p id="love-message" class="love-message"></p>
+<p id="anniversaryMessage" class="anniversary-message"></p>
+
+<canvas id="confettiCanvas"></canvas>
+
+  </div>  <script src="script.js"></script></body>
 </html>

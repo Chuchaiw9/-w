@@ -12,16 +12,17 @@
 
   <div class="container">
     <h1 class="heading">อีกไม่กี่วันก็จะครบ 1 เดือนแล้ว!</h1>
-    <div id="countdown" class="countdown"></div>
+
+    <!-- Countdown & Love Days -->
+    <div class="countdown-container">
+      <div id="countdown" class="countdown"></div>
+      <div id="loveDays" class="love-days"></div>
+    </div>
 
     <iframe class="video" src="https://www.youtube.com/embed/OYPiXBIgvJ8?autoplay=1&loop=1&playlist=OYPiXBIgvJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-    <p id="loveDays"></p>
-
-    <!-- ปุ่มสุ่มคำบอกรัก -->
     <button onclick="showLoveMessage()" class="love-button">สุ่มคำบอกรัก</button>
 
-    <!-- กล่องแสดงข้อความ -->
     <div id="love-message" class="love-message"></div>
 
     <div class="popup" id="anniversaryPopup">
@@ -34,24 +35,57 @@
 
     <canvas id="heartCanvas"></canvas>
 
-    <!-- เนื้อหาเพิ่มด้านล่าง -->
-    <div class="extra-content">
-      <p>เลื่อนลงมาเค้ามีอะไรจะบอกอ้วนนน</p>
-      <p>😛💖</p>
-    </div>
-  </div>
-
-  <div class="letter-container">
-    <div class="envelope" id="envelope" onclick="toggleLetter()">
-      <div class="flap"></div>
-      <div class="letter">
-        <p id="letterText">แพรวาน่ารักที่สุดเลยนะ เค้ารักแพรวามาก ๆ ขอบคุณที่อยู่ข้างกันเสมอ</p>
+    <div class="letter-container">
+      <div class="envelope" id="envelope" onclick="toggleLetter()">
+        <div class="flap"></div>
+        <div class="letter">
+          <p id="letterText">แพรวาน่ารักที่สุดเลยนะ เค้ารักแพรวามาก ๆ ขอบคุณที่อยู่ข้างกันเสมอ</p>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // ฟังก์ชันสุ่มคำบอกรัก
+    // การเปิดปิดซองจดหมาย
+    const envelope = document.getElementById('envelope');
+    function toggleLetter() {
+      envelope.classList.toggle('open');
+    }
+
+    // ระบบนับเวลาถอยหลัง
+    const targetDate = new Date("2025-05-17T00:00:00");
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `เหลืออีก ${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ`;
+    }
+    
+    setInterval(updateCountdown, 1000);
+
+    // ระบบนับวันที่คบกัน
+    const startDate = new Date("2025-04-17"); // วันเริ่มคบ
+    function updateLoveDays() {
+      const today = new Date();
+      const diffTime = today - startDate;
+      const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById("loveDays").textContent = `เราอยู่ด้วยกันมาแล้ว ${days} วัน`;
+    }
+
+    updateLoveDays(); // เรียกใช้ฟังก์ชันนี้ทันที
+    setInterval(updateLoveDays, 1000); // อัพเดททุกๆ 1 วินาที
+
+    // ระบบสุ่มคำบอกรัก
     function showLoveMessage() {
       const messages = [
         "รักแพรวามากที่สุดในโลก!",
@@ -64,10 +98,9 @@
       document.getElementById("love-message").textContent = randomMsg;
     }
 
-    // การเปิดปิดซองจดหมาย
-    const envelope = document.getElementById('envelope');
-    function toggleLetter() {
-      envelope.classList.toggle('open');
+    function closePopup() {
+      popup.style.display = "none";
     }
   </script>
 </body>
+</html>

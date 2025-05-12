@@ -2,19 +2,9 @@ body {
   font-family: 'Itim', cursive;
   margin: 0;
   padding: 0;
-  height: 1200vh; /* เพิ่มความสูงของหน้าเว็บเพื่อให้เลื่อนได้ */
-  scroll-behavior: smooth; /* ทำให้การเลื่อนเนียนขึ้น */
   background: linear-gradient(to bottom right, #ffe6f0, #ffe2f2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: auto; /* ให้สามารถเลื่อนหน้าได้ */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .love-marquee {
@@ -27,7 +17,7 @@ html, body {
 
 .container {
   text-align: center;
-  margin-top: 50px;
+  padding: 50px 20px;
 }
 
 h1.heading {
@@ -107,4 +97,12 @@ iframe.video {
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.extra-content {
+  margin-top: 100px;
+  font-size: 1.5em;
+  color: #d63384;
+  text-align: center;
+  padding-bottom: 150px;
 }

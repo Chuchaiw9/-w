@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เว็บไซต์นับวันครบรอบ</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ครบรอบของเรา</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet" />
 </head>
 <body>
   <marquee class="love-marquee">แพรวาน่ารักที่สุดในโลกเลยนะ ขอบคุณที่อยู่ข้างกันเสมอ</marquee>
@@ -18,8 +19,6 @@
     <p id="loveDays"></p>
 
     <button onclick="showLoveMessage()" class="love-button">สุ่มคำบอกรัก</button>
-
-    <!-- เพิ่ม div นี้เข้าไป -->
     <div id="love-message" class="love-message"></div>
 
     <div class="popup" id="anniversaryPopup">
@@ -49,6 +48,12 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // การเปิดปิดซองจดหมาย
+    const envelope = document.getElementById('envelope');
+    function toggleLetter() {
+      envelope.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>

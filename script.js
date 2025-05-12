@@ -1,50 +1,34 @@
-// คำนวณวันคบกัน
-function updateDaysTogether() {
-  const startDate = new Date("2025-04-17");
-  const today = new Date();
-  const diffTime = Math.abs(today - startDate);
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  document.getElementById("days-together").textContent = `เราคบกันมาแล้ว ${diffDays} วัน`;
-}
-
-// ตัวนับถอยหลังถึงวันครบรอบ 1 เดือน
-function updateCountdown() {
-  const targetDate = new Date("2025-05-17T00:00:00");
-  const now = new Date();
-  const distance = targetDate - now;
-
-  if (distance <= 0) {
-    document.getElementById("countdown").innerHTML = "<strong>สุขสันต์วันครบรอบ 1 เดือนนะแพรวา!</strong>";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / 1000 / 60) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
-
-  document.getElementById("countdown").innerHTML =
-    `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
-}
-
-// คำบอกรักสุ่มให้แพรวา
+const startDate = new Date("2025-04-17T00:00:00");
+const endDate = new Date("2025-05-17T00:00:00");
 const loveMessages = [
-  "รักแพรวาที่สุดในโลกเลย ",
-  "ถึงอยู่ไกลแต่ใจเราอยู่ด้วยกันนะ",
-  "แพรวาคือหัวใจของเค้านะ",
-  "คิดถึงทุกวันเลยนะครับ",
-  "ถ้ามี 100 ชีวิต เข้าก็รักแพรวาทุกชีวิตเลย",
-  "ยิ้มของแพรวาทำให้วันของเราสดใสขึ้นเสมอ",
-  "แค่เห็นชื่อแพรวาก็ยิ้มได้แล้ว",
-  "รักนะไอ้เด็กดื้อของพี่"
+    "แพรวา, คุณทำให้โลกของฉันสดใสขึ้นทุกวัน",
+    "รักเธอมากนะ, แพรวา, ไม่ว่าจะผ่านไปนานแค่ไหน",
+    "ทุกๆ วินาทีที่มีเธอคือความสุขที่สุด",
+    "ขอบคุณที่อยู่ข้างกันเสมอ แพรวา",
+    "รักเธอจนไม่มีคำไหนอธิบายได้"
 ];
 
-function showRandomLoveMessage() {
-  const randomIndex = Math.floor(Math.random() * loveMessages.length);
-  document.getElementById("love-message").textContent = loveMessages[randomIndex];
-}
+// Countdown Timer
+function updateCountdown() {
+    const now = new Date();
+    const distance = endDate - now;
 
-// เริ่มทำงาน
-updateDaysTogether();
-updateCountdown();
+    if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "Happy Anniversary!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = `ถึงวันที่ 17 พฤษภาคม 2025: ${days} วัน ${hours} ชม ${minutes} นาที ${seconds} วินาที`;
+}
 setInterval(updateCountdown, 1000);
+
+// Random Love Message
+function randomLoveMessage() {
+    const randomIndex = Math.floor(Math.random() * loveMessages.length);
+    document.getElementById("loveMessageBox").innerHTML = `<p>${loveMessages[randomIndex]}</p>`;
+}

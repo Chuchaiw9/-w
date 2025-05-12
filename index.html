@@ -1,26 +1,42 @@
-<!DOCTYPE html><html lang="th">
+<!DOCTYPE html>
+<html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครบรอบของเรา</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ครบรอบ 1 เดือนของเรา</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- ข้อความเลื่อน -->
   <div class="scrolling-text">
-    <p>รักแพรวานะ จากใจแฟนของเธอ รักที่สุดในโลกเลยน้าาา จุ๊บๆ</p>
-  </div>  <div class="container">
-    <h1>อีกไม่นานจะถึงวันครบรอบ 1 เดือน!</h1>
-    <div id="countdown"></div><div class="love-section">
-  <button class="love-button" onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
-  <div id="loveMessage" class="love-message"></div>
-</div>
+    <p>รักแพรวามากที่สุดในโลกเลย ทุกวินาทีที่มีแพรวาคือที่สุดในชีวิต</p>
+  </div>
 
-<div id="giftBox" class="gift-box hidden">
-  <div id="giftMessage" class="gift-message"></div>
-</div>
+  <!-- วิดีโอเพลงจาก YouTube -->
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OYPiXBIgvJ8?autoplay=1&loop=1&playlist=OYPiXBIgvJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
 
-  </div>  <footer>
-    <p>สร้างเพื่อแพรวา โดยคนที่รักเธอที่สุดในจักรวาล</p>
-  </footer>  <script src="script.js"></script></body>
+  <!-- กล่องคำบอกรัก -->
+  <div class="container">
+    <h1>ครบรอบ 1 เดือนของเรา!</h1>
+    <div id="countdown" class="countdown"></div>
+
+    <div class="love-section">
+      <button class="love-button" onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
+      <div id="loveMessage" class="love-message"></div>
+    </div>
+
+    <div id="giftBox" class="gift-box hidden">
+      <div id="giftMessage" class="gift-message"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>สร้างด้วยใจเพื่อแพรวา จากคนที่รักเธอที่สุดในจักรวาล</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>

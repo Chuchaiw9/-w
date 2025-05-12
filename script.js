@@ -1,40 +1,20 @@
-// วันที่ครบรอบ (17 พฤษภาคม 2025)
-const anniversaryDate = new Date('2025-05-17');
-const countdownElement = document.getElementById('countdown');
-const giftBox = document.getElementById('giftBox');
-const giftMessage = document.getElementById('giftMessage');
+// script.js const countdownEl = document.getElementById("countdown"); const loveMessageEl = document.getElementById("loveMessage"); const giftBox = document.getElementById("giftBox"); const giftMessage = document.getElementById("giftMessage");
 
-// ฟังก์ชันคำนวณและแสดงการนับถอยหลัง
-function updateCountdown() {
-  const today = new Date();
-  const diffTime = anniversaryDate.getTime() - today.getTime();
-  
-  if (diffTime <= 0) {
-    countdownElement.textContent = 'ถึงวันครบรอบแล้ว!';
-    showGift();
-  } else {
-    const days = Math.floor(diffTime / (1000 * 3600 * 24));
-    const hours = Math.floor((diffTime % (1000 * 3600 * 24)) / (1000 * 3600));
-    const minutes = Math.floor((diffTime % (1000 * 3600)) / (1000 * 60));
-    countdownElement.textContent = `เหลือเวลา ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ถึงวันครบรอบ!`;
-  }
-}
+const targetDate = new Date("2025-05-17T00:00:00");
 
-// ฟังก์ชันแสดงข้อความเซอร์ไพรส์เมื่อถึงวันครบรอบ
-function showGift() {
-  const messages = [
-    "ขอบคุณสำหรับทุกช่วงเวลาที่ดี รักเธอมากนะ! 💖",
-    "1 เดือนแล้วที่เราคบกัน! ขอให้รักเรายั่งยืนตลอดไป 🥰",
-    "เรามีความสุขมากๆ ที่ได้มีเธอในชีวิต! ❤️"
-  ];
-  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-  giftMessage.textContent = randomMessage;
-  giftBox.style.display = 'block';
-  setTimeout(() => giftBox.style.display = 'none', 8000); // ซ่อนกล่องของขวัญหลังจาก 8 วินาที
-}
+function updateCountdown() { const now = new Date(); const diff = targetDate - now;
 
-// เรียกใช้ฟังก์ชันในการอัพเดตนับถอยหลังทุกวินาที
-setInterval(updateCountdown, 1000);
+if (diff <= 0) { countdownEl.innerHTML = "วันนี้คือวันครบรอบของเรา!"; showAnniversaryGift(); return; }
 
-// เริ่มต้นการแสดงการนับถอยหลัง
-updateCountdown();
+const days = Math.floor(diff / (1000 * 60 * 60 * 24)); const hours = Math.floor((diff / (1000 * 60 * 60)) % 24); const minutes = Math.floor((diff / 1000 / 60) % 60); const seconds = Math.floor((diff / 1000) % 60);
+
+countdownEl.innerHTML = ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที; }
+
+function showAnniversaryGift() { giftBox.classList.remove("hidden"); giftMessage.innerHTML = สุขสันต์วันครบรอบ 1 เดือนนะ แพรวา<br> ขอบคุณที่อยู่ด้วยกันถึงแม้เราจะห่างไกล<br> แต่หัวใจเราอยู่ใกล้กันเสมอ รักมากๆนะ; }
+
+const loveQuotes = [ "รักเธอทุกวินาทีเลยนะ", "ถึงจะไกลแต่ใจอยู่ใกล้เสมอ", "คิดถึงแพรวาทุกวันเลย", "เธอคือคนที่ดีที่สุดในชีวิตเลย", "อยู่ด้วยกันนานๆนะ แพรวา" ];
+
+function showLoveMessage() { const randomIndex = Math.floor(Math.random() * loveQuotes.length); loveMessageEl.textContent = loveQuotes[randomIndex]; loveMessageEl.style.animation = "fadeIn 0.8s ease"; }
+
+setInterval(updateCountdown, 1000); updateCountdown();
+

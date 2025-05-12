@@ -1,31 +1,32 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>นับถอยหลังรักของเรา</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ครบรอบของเรา</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ข้อความเลื่อนบนสุด -->
-  <marquee class="marquee">รักแพรวาทุกวันเลยน้า ขอบคุณที่เข้ามาเป็นดวงใจของเค้า</marquee>
-
-  <!-- กล่องนับถอยหลัง -->
+  <marquee class="love-marquee">แพรวาน่ารักที่สุดในโลกเลยนะ ขอบคุณที่อยู่ข้างกันเสมอ</marquee>
   <div class="container">
-    <h1>จะครบ 1 เดือนกับแพรวาในอีก...</h1>
-    <div id="countdown" class="countdown">⏳ กำลังโหลด...</div>
-  </div>
+    <h1 class="heading">อีกไม่กี่วันก็จะครบ 1 เดือนแล้ว!</h1>
+    <div id="countdown" class="countdown"></div>
+    <iframe class="video" src="https://www.youtube.com/embed/OYPiXBIgvJ8?autoplay=1&loop=1&playlist=OYPiXBIgvJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-  <!-- วิดีโอ YouTube -->
-  <div class="video-container">
-    <iframe width="100%" height="300" src="https://www.youtube.com/embed/OYPiXBIgvJ8?autoplay=1&loop=1&playlist=OYPiXBIgvJ8" 
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
+    <button onclick="showLoveMessage()" class="love-button">สุ่มคำบอกรัก</button>
+    <div id="love-message" class="love-message"></div>
 
-  <!-- ปุ่มสุ่มคำบอกรัก -->
-  <div class="love-box">
-    <button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
-    <p id="love-message"></p>
+    <div class="popup" id="anniversaryPopup">
+      <div class="popup-content">
+        <h2>สุขสันต์วันครบรอบ 1 เดือน!</h2>
+        <p>เค้ารักแพรวามาก ๆ นะ ขอบคุณที่อยู่ข้างกันเสมอ ถึงเราจะอยู่ไกลกันแต่ใจก็ใกล้กันตลอดเลยนะ</p>
+        <button onclick="closePopup()">ปิด</button>
+      </div>
+    </div>
+
+    <canvas id="heartCanvas"></canvas>
   </div>
 
   <script src="script.js"></script>

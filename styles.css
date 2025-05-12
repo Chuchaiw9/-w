@@ -1,210 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
-
+/* สไตล์พื้นฐาน */
 body {
   margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #ffc0cb, #ffe6f0);
   font-family: 'Kanit', sans-serif;
-  color: #d6336c;
+  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+  color: #333;
+  padding-top: 80px;
   text-align: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.container {
-  background: #ffffffdd;
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: 0 0 20px #ffb6c1;
-  max-width: 400px;
-  width: 90%;
-  animation: popin 0.8s ease;
-}
-
+/* หัวเรื่อง */
 h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+  color: #ff4d79;
 }
 
 .sub {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
-#countdown {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.time {
-  background: #ffdde5;
-  padding: 10px;
-  border-radius: 15px;
-  width: 70px;
-  animation: bounce 1s infinite alternate;
-  box-shadow: 0 0 10px #ffb6c1aa;
-}
-
-.time span {
-  font-size: 24px;
+/* นับวันคบกัน */
+#daysTogether {
+  font-size: 2.5em;
   font-weight: bold;
-  display: block;
+  color: #ff3399;
 }
 
-.time label {
-  font-size: 14px;
-}
-
+/* ปุ่มทั่วไป */
 button {
-  background: #ff6fa4;
-  color: white;
+  background-color: #ff66a3;
   border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.1em;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px #ff99bb88;
+  margin: 10px;
 }
 
 button:hover {
-  background: #ff488c;
+  background-color: #ff3385;
   transform: scale(1.05);
 }
 
-.love-message {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #c2185b;
-  animation: fadein 0.5s ease;
-}
-
-/* ลูกเล่นเคลื่อนไหว */
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-5px); }
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes popin {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-@keyframes glitter {
-  0% { transform: translateY(-10px); opacity: 0.8; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-.glitter {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background-color: #ff99cc;
-  border-radius: 50%;
-  animation: glitter 3s linear infinite;
-  pointer-events: none;
-  z-index: 999;
-}
-
-.glitter:nth-child(odd) {
-  animation-duration: 4s;
-  background-color: #f5a7d1;
-}
-
-.glitter:nth-child(even) {
-  animation-duration: 5s;
-  background-color: #ffb6c1;
-}
-.love-alert {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  background: #ffb6c1;
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 20px;
+/* กล่องแสดงข้อความ */
+#loveMessage {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #d63384;
   font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  animation: fadeInPop 0.8s ease-out, fadeOut 1s ease-in 4s forwards;
-  z-index: 9999;
-}
-@keyframes fadeInPop {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-.container {
-  width: 90%; /* ทำให้กรอบกว้างขึ้น */
-  max-width: 800px; /* ตั้งขนาดสูงสุด */
-  margin: 50px auto; /* กำหนดให้กลางจอและมีระยะห่างข้างบน */
-  padding: 30px; /* เพิ่มช่องว่างรอบๆ */
-  background: #fff(255, 182, 193, 0.8); /* สีพื้นหลังโปร่งใส */
-  border-radius: 15px; /* มุมโค้ง */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* เงาบางๆ */
-}
-.container h1 {
-  font-size: 36px; /* ขนาดตัวอักษรหัวข้อใหญ่ขึ้น */
-}
-
-.container .sub {
-  font-size: 18px; /* ขนาดข้อความย่อยใหญ่ขึ้น */
-}
-
-#countdown .time span {
-  font-size: 40px; /* ขยายตัวเลขนับถอยหลัง */
-}
-#love-button {
-  font-size: 50px; /* ขนาดตัวอักษรของปุ่ม */
-  padding: 80px 100px; /* ขยายขนาดปุ่ม */
-  border-radius: 30px; /* มุมโค้ง */
-  background-color: #ff69b4; /* สีพื้นหลังปุ่ม */
-  color: white; /* ตัวอักษรสีขาว */
-  border: none; /* ไม่มีเส้นขอบ */
-  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือ */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เงาปุ่ม */
-}
-
-#love-button:hover {
-  background-color: #ff1493; /* เปลี่ยนสีตอนเอาเมาส์ไปอยู่เหนือปุ่ม */
-}
-.container .time {
-  margin-bottom: 20px; /* ห่างกันระหว่างเวลาทั้งหมด */
-}
-
-.container button {
-  margin-top: 20px; /* ห่างจากเนื้อหาข้างบน */
-}
+/* แถบข้อความเลื่อนด้านบน */
 .top-marquee-box {
   width: 100%;
   overflow: hidden;
-  background-color: #ffc0cb;
-  padding: 15px 0;
+  background-color: #ffb6c1;
+  padding: 10px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -218,7 +72,7 @@ button:hover {
   animation: scroll-top 15s linear infinite;
   color: #fff;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.1em;
   padding-left: 100%;
 }
 
@@ -230,41 +84,111 @@ button:hover {
     transform: translateX(-100%);
   }
 }
-/* ปรับขนาดปุ่มสุ่มคำบอกรัก */
-#love-button {
-  font-size: 1.5em; /* ขนาดตัวอักษร */
-  padding: 15px 30px; /* ขนาดของปุ่ม */
-  background-color: #ff69b4; /* สีพื้นหลัง */
-  color: white; /* สีตัวอักษร */
-  border: none; /* ไม่ให้มีเส้นขอบ */
-  border-radius: 10px; /* มุมโค้งมน */
-  cursor: pointer; /* แสดงว่าเป็นปุ่มที่คลิกได้ */
-  transition: background-color 0.3s ease; /* ทำให้ปุ่มมีการเปลี่ยนสี */
+
+/* หัวใจเต้น */
+.heart {
+  width: 100px;
+  height: 90px;
+  background-color: red;
+  position: relative;
+  margin: 30px auto;
+  animation: heartbeat 1s infinite;
+  transform: scale(1);
 }
 
-#love-button:hover {
-  background-color: #ff1493; /* เปลี่ยนสีเมื่อวางเมาส์ */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  background-color: red;
+  border-radius: 50%;
 }
-.notification {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ffcc00;
-  padding: 15px;
-  border-radius: 10px;
-  display: none;
+
+.heart::before {
+  top: -50px;
+  left: 0;
+}
+
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* รูปภาพคู่รัก */
+.images-row {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  z-index: 9999;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  gap: 50px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.notification-icon {
-  width: 40px;
-  margin-right: 10px;
+.images-row img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ff99c8;
+  box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
 }
 
-.notification p {
-  margin: 0;
-  font-size: 16px;
-  color: #000;
+/* เกมกล่องข้อความ */
+.game-box {
+  max-width: 300px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 0, 102, 0.2);
 }
+
+/* การ์ตูนหัวใจลอยขึ้น */
+.floating-hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.heart-float {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  animation: floatUp 5s linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+  }

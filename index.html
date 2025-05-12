@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>วันครบรอบของเรา</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เซอร์ไพรส์สำหรับแพรวา</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="top-marquee-box">
-    <div class="top-marquee-text">สุขสันต์วันครบรอบ รักแพรวามากนะ!</div>
-  </div>
-
-  <div class="heart-container" id="hearts"></div>
-
+  <div class="overlay"></div>
   <div class="container">
-    <h1>นับถอยหลังสู่วันครบรอบ</h1>
-    <div class="sub">17 มิถุนายน 2025</div>
+    <header>
+      <h1>1 เดือนแล้วนะ! 🎉</h1>
+    </header>
+    <div id="countdown"></div>
 
-    <div id="countdown">
-      <div class="time"><span id="days">0</span><label>วัน</label></div>
-      <div class="time"><span id="hours">0</span><label>ชั่วโมง</label></div>
-      <div class="time"><span id="minutes">0</span><label>นาที</label></div>
-      <div class="time"><span id="seconds">0</span><label>วินาที</label></div>
+    <!-- ข้อความเลื่อน -->
+    <div class="scrolling-text">
+      <p>แพรวา... ขอบคุณสำหรับทุกสิ่งที่ทำให้ชีวิตเรามีความสุข ❤️</p>
     </div>
 
-    <button id="love-button">สุ่มคำบอกรัก</button>
-    <div class="love-message" id="love-message"></div>
+    <div id="giftBox" class="gift-box">
+      <div class="gift-message" id="giftMessage"></div>
+    </div>
+    
+    <footer>
+      <p>วันครบรอบ: <strong>17 เมษายน 2025</strong></p>
+    </footer>
   </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>

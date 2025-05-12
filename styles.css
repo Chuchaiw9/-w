@@ -4,6 +4,17 @@ body {
   padding: 0;
   height: 200vh; /* เพิ่มความสูงของหน้าเว็บเพื่อให้เลื่อนได้ */
   scroll-behavior: smooth; /* ทำให้การเลื่อนเนียนขึ้น */
+  background: linear-gradient(to bottom right, #ffe6f0, #ffe2f2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto; /* ให้สามารถเลื่อนหน้าได้ */
 }
 
 .love-marquee {

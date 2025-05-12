@@ -1,33 +1,17 @@
-<!DOCTYPE html><html lang="th">
+<!DOCTYPE html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครบรอบของบอยกับแพรวา</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บนับถอยหลังครบรอบ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="top-banner">รักแพรวาที่สุดในจักรวาลเลยนะ!</div>  <div class="main">
-    <h1>ครบรอบของเรา</h1><div class="image-row">
-  <img src="https://cdn.discordapp.com/attachments/1208742242521587732/1371355203542188082/1746856342235.png" alt="บอย">
-  <div class="heart">❤️</div>
-  <img src="https://cdn.discordapp.com/attachments/1208742242521587732/1371355203835531395/1746856327108.png" alt="แพรวา">
-</div>
+    <div id="header">รักแพรวา - ครบรอบ 17 เมษายน 2025</div>
+    <div id="countdown"></div>
+    <button class="btn" onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
+    <div class="love-messages" id="loveMessageBox"></div>
 
-<div class="counter-box">
-  <p>เราคบกันมาแล้ว</p>
-  <h2 id="daysTogether">0</h2>
-  <p>วัน</p>
-</div>
-
-<div class="countdown-box">
-  <p>จะถึงวันครบรอบ 1 เดือนในอีก</p>
-  <div id="countdown"></div>
-</div>
-
-<div class="love-button-box">
-  <button onclick="showLoveMessage()">สุ่มคำบอกรักแพรวา</button>
-  <p id="loveMessage"></p>
-</div>
-
-  </div>  <script src="script.js"></script></body>
+    <script src="script.js"></script>
+</body>
 </html>

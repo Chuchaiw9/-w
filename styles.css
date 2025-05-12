@@ -1,160 +1,113 @@
-/* -------------------------- General Styles -------------------------- */
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Background color and font style */
 body {
-  font-family: 'Kanit', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  color: #333;
-  text-align: center;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #ff69b4;
-  margin-top: 20px;
+/* ข้อความเลื่อน */
+.scrolling-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ff99cc;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: scroll-text 10s linear infinite;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px 0;
-  font-size: 1.1rem;
+@keyframes scroll-text {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
+/* ข้อความส่วนบน */
+.heading {
+    font-size: 32px;
+    color: #333;
+    margin-top: 80px;
+    font-weight: bold;
+}
+
+/* ตัวนับถอยหลัง */
 .countdown {
-  font-size: 2rem;
-  color: #ff4500;
-  font-weight: bold;
-  margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ff66b2;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
 }
 
-.love-section {
-  margin-top: 20px;
+/* วิดีโอ YouTube */
+.video-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.love-button {
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.love-button:hover {
-  background-color: #ff1493;
-}
-
-.love-message {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #ff1493;
-  font-style: italic;
-}
-
-.hidden {
-  display: none;
-}
-
+/* กล่องของขวัญ */
 .gift-box {
-  background-color: #ff99cc;
-  border-radius: 15px;
-  padding: 30px;
-  margin-top: 20px;
-  max-width: 80%;
-  margin: 20px auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffccff;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 .gift-message {
-  font-size: 1.5rem;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  animation: giftAnimation 3s ease-in-out;
+    font-size: 20px;
+    color: #333;
 }
 
-@keyframes giftAnimation {
-  0% { transform: scale(1); opacity: 0; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+/* ปุ่มสุ่มคำบอกรัก */
+.love-section {
+    margin-top: 30px;
 }
 
-.scrolling-text {
-  font-size: 1.2rem;
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  animation: scrollText 10s linear infinite;
+.love-button {
+    background-color: #ff66b2;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+.love-button:hover {
+    background-color: #ff3385;
 }
 
-/* ------------------------- Video Styles -------------------------- */
-.video-container {
-  max-width: 80%;
-  margin: 40px auto;
-  text-align: center;
-  border-radius: 15px;
-  background-color: #ffb6c1;
-  padding: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.love-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff3385;
 }
 
-iframe {
-  border-radius: 15px;
+.love-message.hidden {
+    display: none;
 }
 
-/* ------------------------- Countdown Position -------------------------- */
-#countdown {
-  font-size: 2rem;
-  color: #ff4500;
-  font-weight: bold;
-  margin-top: 30px;
-  display: inline-block;
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: rgba(255, 69, 0, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ------------------------- Responsive Design -------------------------- */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .countdown {
-    font-size: 1.5rem;
-  }
-
-  .video-container {
-    width: 100%;
-  }
-
-  .gift-box {
-    width: 90%;
-  }
-
-  .love-button {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
-
-  .love-message {
-    font-size: 1rem;
-  }
+/* Footer */
+footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
 }

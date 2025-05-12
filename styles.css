@@ -1,142 +1,99 @@
-/* styles.css */
 body {
-  margin: 0;
   font-family: 'Itim', cursive;
-  background: linear-gradient(to bottom, #ffe4ec, #ffe6fa);
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 200vh; /* เพิ่มความสูงของหน้าเว็บเพื่อให้เลื่อนได้ */
+  scroll-behavior: smooth; /* ทำให้การเลื่อนเนียนขึ้น */
 }
 
 .love-marquee {
-  background-color: #ff99cc;
+  font-size: 1.5em;
+  text-align: center;
+  background-color: #ff66a3;
   color: white;
-  padding: 10px;
-  font-size: 1.2em;
+  padding: 15px;
 }
 
 .container {
   text-align: center;
-  padding: 20px;
-  position: relative;
+  margin-top: 50px;
 }
 
-.heading {
+h1.heading {
+  font-size: 2.5em;
+  color: #d63384;
+}
+
+#countdown {
   font-size: 2em;
-  color: #d63384;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #444;
 }
 
-.countdown {
-  font-size: 1.5em;
-  background-color: white;
-  padding: 15px;
+iframe.video {
+  margin-top: 30px;
+  width: 80%;
+  height: 300px;
   border-radius: 20px;
-  display: inline-block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  color: #d63384;
-}
-
-.video {
-  width: 90%;
-  max-width: 500px;
-  height: 280px;
-  margin: 20px 0;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .love-button {
   background-color: #ff66a3;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 30px;
   font-size: 1.2em;
-  border-radius: 20px;
+  border-radius: 25px;
+  margin-top: 20px;
   cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.love-button:hover {
+  background-color: #ff3385;
 }
 
 .love-message {
   margin-top: 20px;
   font-size: 1.2em;
-  color: #b30059;
-  min-height: 30px;
+  color: #ff66a3;
 }
 
 .popup {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 9999;
 }
 
 .popup-content {
-  background: white;
-  padding: 30px;
+  background-color: white;
+  padding: 20px;
   border-radius: 15px;
   text-align: center;
-  max-width: 400px;
-  color: #d63384;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  max-width: 500px;
+  width: 80%;
 }
 
-canvas#heartCanvas {
+.popup button {
+  background-color: #ff66a3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#heartCanvas {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 1;
-}
-
-/* ปรับรูปหัวใจ */
-.heart {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: red;
-  transform: rotate(45deg);
-  animation: float 6s ease-in-out infinite;
-  z-index: 2;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: red;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -20px; /* ปรับตำแหน่งเพื่อให้หัวใจสมบูรณ์ */
-  left: 0;
-}
-
-.heart::after {
-  left: -20px; /* ปรับตำแหน่งเพื่อให้หัวใจสมบูรณ์ */
-  top: 0;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) rotate(45deg);
-    opacity: 0;
-  }
-.love-days {
-  margin-top: 40px;
-  font-size: 1.4em;
-  color: #ff3399;
-  font-weight: bold;
-  text-shadow: 1px 1px white;
 }

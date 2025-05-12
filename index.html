@@ -1,125 +1,32 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Anniversary</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>วันครบรอบของเรา</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Marquee (ข้อความเลื่อน) -->
   <div class="top-marquee-box">
-    <div class="top-marquee-text">
-      มีอะไรจะบอกก็คือออออออออ!เค้ารักอ้วนมากที่สุดในจักรวาลนี้เลยน้าาาาา!
-    </div>
+    <div class="top-marquee-text">สุขสันต์วันครบรอบ รักแพรวามากนะ!</div>
   </div>
 
-  <!-- นับถอยหลัง -->
+  <div class="heart-container" id="hearts"></div>
+
   <div class="container">
-    <h1>นับถอยหลังวันครบรอบ</h1>
-    <p class="sub">เราจะถึงวันครบรอบกันในอีก...</p>
+    <h1>นับถอยหลังสู่วันครบรอบ</h1>
+    <div class="sub">17 มิถุนายน 2025</div>
 
-    <!-- แจ้งเตือนจดหมาย -->
-<div id="loveNotification" class="notification" style="display: none;">
-  <img src="https://img.icons8.com/ios-filled/50/000000/love-letter.png" alt="Love Letter" class="notification-icon">
-  <p id="loveMessage"></p>
-</div>
-
-    <!-- ข้อความเตือน -->
-    <div id="love-alert" class="love-alert">
-      <p>⚠️ คำเตือน: โปรดอ่านก่อน! คนสร้างเว็บนี้รักคุณมาก ❤️💫</p>
-    </div>
-
-    <!-- นับถอยหลัง -->
     <div id="countdown">
-      <div class="time"><span id="days">00</span><label>วัน</label></div>
-      <div class="time"><span id="hours">00</span><label>ชั่วโมง</label></div>
-      <div class="time"><span id="minutes">00</span><label>นาที</label></div>
-      <div class="time"><span id="seconds">00</span><label>วินาที</label></div>
+      <div class="time"><span id="days">0</span><label>วัน</label></div>
+      <div class="time"><span id="hours">0</span><label>ชั่วโมง</label></div>
+      <div class="time"><span id="minutes">0</span><label>นาที</label></div>
+      <div class="time"><span id="seconds">0</span><label>วินาที</label></div>
     </div>
 
-    <!-- ปุ่มสุ่มคำบอกรัก -->
-    <button onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
-    <p id="love-message" class="love-message"></p>
-
-    <!-- ข้อความวันครบรอบ -->
-    <p id="anniversaryMessage" class="anniversary-message"></p> <!-- แสดงข้อความวันครบรอบ -->
+    <button id="love-button">สุ่มคำบอกรัก</button>
+    <div class="love-message" id="love-message"></div>
   </div>
-
-  <script>
-    // ฟังก์ชั่นสุ่มคำบอกรัก
-    const loveMessages = [
-      "รักแพรวามากๆ เลยนะรู้ไหม",
-      "รักแพรวาาาา ❤️",
-      "เธอคือคนที่ทำให้ทุกวันของฉันมีความหมาย",
-      "รักกันมากๆ นะ! ทุกวันทุกเวลา ❤️",
-      "เธอทำให้โลกนี้สดใสขึ้นมาก",
-    ];
-
-    function showLoveMessage() {
-      const randomIndex = Math.floor(Math.random() * loveMessages.length);
-      document.getElementById("love-message").textContent = loveMessages[randomIndex];
-    }
-
-    // ฟังก์ชั่นนับถอยหลัง
-    const countdownDate = new Date("2025-05-17T00:00:00").getTime();
-    const countdownElement = document.getElementById("countdown");
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
-
-      if (distance <= 0) {
-        clearInterval(countdownInterval);
-        countdownElement.innerHTML = "ถึงวันครบรอบแล้ว! 🎉";
-        
-        // แสดงข้อความวันครบรอบ
-        document.getElementById("anniversaryMessage").textContent = "สุขสันต์วันครบรอบนะคะ! ❤️🎉";
-      } else {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
-      }
-    }
-
-    const countdownInterval = setInterval(updateCountdown, 1000);
-
-    // ฟังก์ชั่นกลิตเตอร์
-    function createGlitter() {
-      const glitter = document.createElement('div');
-      glitter.classList.add('glitter');
-      document.body.appendChild(glitter);
-
-      glitter.style.left = `${Math.random() * window.innerWidth}px`;
-
-      setTimeout(() => {
-        glitter.remove();
-      }, 5000);
-    }
-
-    setInterval(createGlitter, 100);
-
-    // ฟังก์ชั่นแจ้งเตือนจดหมาย
-    function displayLoveNotification() {
-      const loveNotification = document.getElementById("loveNotification");
-      loveNotification.style.display = "block"; // ทำให้แสดง
-      setTimeout(() => {
-        loveNotification.style.display = "none"; // ซ่อนหลังจาก 5 วินาที
-      }, 5000);
-    }
-
-    // เรียกใช้งานฟังก์ชั่นการแสดงแจ้งเตือนจดหมาย
-    displayLoveNotification();
-  </script>
-
-  <!-- ไฟล์ JavaScript -->
-  <script src="script.js"></script>
-
 </body>
 </html>

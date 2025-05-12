@@ -82,4 +82,11 @@ window.addEventListener("resize", () => {
 });
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+const startDate = new Date("2024-04-17"); // วันเริ่มคบ
+setInterval(() => {
+  const today = new Date();
+  const diffTime = today - startDate;
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("loveDays").textContent = `เราอยู่ด้วยกันมาแล้ว ${days} วัน`;
+}, 1000);
 

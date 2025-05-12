@@ -92,10 +92,12 @@ canvas#heartCanvas {
   pointer-events: none;
   z-index: 1;
 }
+
+/* ปรับรูปหัวใจ */
 .heart {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: red;
   transform: rotate(45deg);
   animation: float 6s ease-in-out infinite;
@@ -106,19 +108,19 @@ canvas#heartCanvas {
 .heart::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -15px;
+  top: -20px; /* ปรับตำแหน่งเพื่อให้หัวใจสมบูรณ์ */
   left: 0;
 }
 
 .heart::after {
-  left: -15px;
+  left: -20px; /* ปรับตำแหน่งเพื่อให้หัวใจสมบูรณ์ */
   top: 0;
 }
 

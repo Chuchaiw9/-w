@@ -10,6 +10,24 @@
 <body>
   <marquee class="love-marquee">แพรวาน่ารักที่สุดในโลกเลยนะ ขอบคุณที่อยู่ข้างกันเสมอ</marquee>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const loveButton = document.querySelector(".love-button");
+    const loveMessage = document.getElementById("love-message");
+
+    loveButton.addEventListener("click", function () {
+      const messages = [
+        "รักแพรวามากที่สุดในโลก!",
+        "ถึงจะอยู่ไกลแต่ใจใกล้เสมอ",
+        "คิดถึงเธอทุกวันเลยนะ",
+        "อยู่ด้วยกันตลอดไปนะ",
+        "แพรวาคือคนพิเศษของเค้า"
+      ];
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      loveMessage.textContent = messages[randomIndex];
+    });
+  });
+  </script>
   <div class="container">
     <h1 class="heading">อีกไม่กี่วันก็จะครบ 1 เดือนแล้ว!</h1>
     <div id="countdown" class="countdown"></div>

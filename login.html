@@ -18,27 +18,34 @@
 
     .container {
       background: white;
-      padding: 70px;
+      padding: 60px;
       border-radius: 30px;
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
       text-align: center;
       position: relative;
       z-index: 1;
-      width: 500px;
+      width: 90%;
+      max-width: 550px;
     }
 
     h1 {
       color: #d63384;
-      margin-bottom: 20px;
-      font - size: 2em;
+      margin-bottom: 25px;
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.4em;
+      color: #444;
+      margin-bottom: 30px;
     }
 
     input {
-      padding: 12px 20px;
+      padding: 16px 25px;
       border-radius: 25px;
       border: 2px solid #ff99cc;
-      font-size: 1.1em;
-      margin-bottom: 15px;
+      font-size: 1.3em;
+      margin-bottom: 20px;
       width: 80%;
     }
 
@@ -46,8 +53,8 @@
       background-color: #ff66a3;
       color: white;
       border: none;
-      padding: 12px 25px;
-      font-size: 1.2em;
+      padding: 16px 35px;
+      font-size: 1.4em;
       border-radius: 25px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -60,35 +67,37 @@
 
     .error {
       color: red;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-size: 1.2em;
     }
 
     .heart {
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       background-color: #ff66a3;
       transform: rotate(45deg);
       animation: float 5s infinite ease-in-out;
+      z-index: 0;
     }
 
     .heart::before, .heart::after {
       content: "";
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       background-color: #ff66a3;
       border-radius: 50%;
     }
 
     .heart::before {
-      top: -7.5px;
+      top: -9px;
       left: 0;
     }
 
     .heart::after {
       top: 0;
-      left: -7.5px;
+      left: -9px;
     }
 
     @keyframes float {
@@ -117,7 +126,7 @@
       }
     }
 
-    // สร้างหัวใจลอยๆ
+    // หัวใจลอย
     setInterval(() => {
       const heart = document.createElement("div");
       heart.classList.add("heart");

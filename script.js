@@ -1,194 +1,80 @@
-/* สไตล์พื้นฐาน */
-body {
-  margin: 0;
-  font-family: 'Kanit', sans-serif;
-  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
-  color: #333;
-  padding-top: 80px;
-  text-align: center;
-}
+// วันที่เริ่มคบ
+const startDate = new Date("2025-04-17");
 
-/* หัวเรื่อง */
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.3em;
-  color: #ff4d79;
+// อัปเดตจำนวนวันที่คบกัน
+function updateDaysTogether() {
+  const today = new Date();
+  const timeDiff = today - startDate;
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  document.getElementById("daysTogether").textContent = `${days} วัน`;
 }
+updateDaysTogether();
 
-.sub {
-  font-size: 1.2em;
-  margin-bottom: 1em;
-}
+// นับถอยหลังถึงวันครบรอบรายเดือน
+function updateCountdown() {
+  const now = new Date();
+  const currentMonth = now.getMonth() + 1;
+  const currentYear = now.getFullYear();
 
-/* นับวันคบกัน */
-#daysTogether {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #ff3399;
-}
-
-/* ปุ่มทั่วไป */
-button {
-  background-color: #ff66a3;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  color: white;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 10px;
-}
-
-button:hover {
-  background-color: #ff3385;
-  transform: scale(1.05);
-}
-
-/* กล่องแสดงข้อความ */
-#loveMessage {
-  margin-top: 10px;
-  font-size: 1.2em;
-  color: #d63384;
-  font-weight: bold;
-}
-
-/* แถบข้อความเลื่อนด้านบน */
-.top-marquee-box {
-  width: 100%;
-  overflow: hidden;
-  background-color: #ffb6c1;
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  box-shadow: 0 2px 10px rgba(255, 182, 193, 0.6);
-}
-
-.top-marquee-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-top 15s linear infinite;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.1em;
-  padding-left: 100%;
-}
-
-@keyframes scroll-top {
-  0% {
-    transform: translateX(0);
+  // กำหนดวันครบรอบเดือนถัดไป
+  let nextMonth = currentMonth + 1;
+  let year = currentYear;
+  if (nextMonth > 12) {
+    nextMonth = 1;
+    year += 1;
   }
-  100% {
-    transform: translateX(-100%);
+
+  const targetDate = new Date(`${year}-${String(nextMonth).padStart(2, '0')}-17T00:00:00`);
+  const diff = targetDate - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").textContent = 
+    `อีก ${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ ถึงวันครบรอบ`;
+
+  setTimeout(updateCountdown, 1000);
+}
+updateCountdown();
+
+// สุ่มคำบอกรัก
+const loveMessages = [
+  "รักแพรวาทุกวันเลยนะ",
+  "คิดถึงแพรวาทุกวินาที",
+  "ขอบคุณที่เข้ามาในชีวิตนะ",
+  "ถ้ารักคือเพลง เธอคือเพลงที่ดีที่สุดของฉัน",
+  "อยู่ห่างกันแต่ใจอยู่ใกล้เสมอ"
+];
+
+function randomLoveMessage() {
+  const index = Math.floor(Math.random() * loveMessages.length);
+  document.getElementById("loveMessage").textContent = loveMessages[index];
+}
+
+// เกมสุ่มหัวใจ
+function guessHeart() {
+  const answer = Math.floor(Math.random() * 3) + 1;
+  const guess = prompt("ทายว่าหัวใจอยู่ในกล่องเบอร์ไหน (1-3)?");
+  if (parseInt(guess) === answer) {
+    alert("เก่งจังเลยยย หัวใจของเราตรงกัน!");
+  } else {
+    alert(`ไม่เป็นไร ลองใหม่ได้นะ หัวใจอยู่ในกล่อง ${answer}`);
   }
 }
 
-/* หัวใจเต้น */
-.heart {
-  width: 100px;
-  height: 90px;
-  background-color: red;
-  position: relative;
-  margin: 30px auto;
-  animation: heartbeat 1s infinite;
-  transform: scale(1);
+// แสดงหัวใจลอยขึ้นเรื่อยๆ
+function createFloatingHearts() {
+  const container = document.querySelector(".floating-hearts");
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart-float";
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.background = ["red", "pink", "#ff69b4"][Math.floor(Math.random() * 3)];
+    heart.style.width = heart.style.height = `${Math.random() * 20 + 10}px`;
+    container.appendChild(heart);
+    setTimeout(() => container.removeChild(heart), 5000);
+  }, 500);
 }
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 90px;
-  background-color: red;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -50px;
-  left: 0;
-}
-
-.heart::after {
-  left: 50px;
-  top: 0;
-}
-
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1);
-  }
-  75% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* รูปภาพคู่รัก */
-.images-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.images-row img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #ff99c8;
-  box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
-}
-
-/* เกมกล่องข้อความ */
-.game-box {
-  max-width: 300px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(255, 0, 102, 0.2);
-}
-
-/* การ์ตูนหัวใจลอยขึ้น */
-.floating-hearts {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.heart-float {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  animation: floatUp 5s linear infinite;
-  border-radius: 50%;
-}
-
-@keyframes floatUp {
-  0% {
-    bottom: 0;
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    opacity: 0;
-  }
-}
+createFloatingHearts();

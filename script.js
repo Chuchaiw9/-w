@@ -1,47 +1,34 @@
-// นับถอยหลังวันครบรอบ 1 เดือน (17 พ.ค. 2025)
-const countdownElement = document.getElementById("countdown");
-
 function updateCountdown() {
-    const targetDate = new Date("May 17, 2025 00:00:00").getTime();
-    const currentDate = new Date().getTime();
-    const timeDifference = targetDate - currentDate;
+  const targetDate = new Date("2025-05-17T00:00:00");
+  const now = new Date();
+  const diff = targetDate - now;
 
-    // คำนวณวัน, ชั่วโมง, นาที, วินาที
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้วน้าาา ขอบคุณที่อยู่ด้วยกันนะ แพรวาของเค้า!";
+    return;
+  }
 
-    // แสดงผลใน #countdown
-    countdownElement.innerHTML = `เหลือเวลาอีก ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-    // ถ้าถึงวันครบรอบ
-    if (timeDifference < 0) {
-        countdownElement.innerHTML = "วันครบรอบ 1 เดือนแล้ว! 🎉";
-        clearInterval(countdownInterval);
-    }
+  document.getElementById("countdown").innerHTML = 
+    `⏳ เหลืออีก ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
 }
 
-// เรียกใช้ฟังก์ชันทุก 1 วินาทีเพื่ออัพเดตตัวนับ
-const countdownInterval = setInterval(updateCountdown, 1000);
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-// ฟังก์ชันสุ่มคำบอกรัก
-const loveMessages = [
-    "รักเธอนะไออ้วนน 💖",
-    "ไม่ว่าเวลาไหน เค้าจะรักเธอเสมอ 💕",
-    "เธอคือความสุขของเค้าในทุกๆวัน 🌸",
-    "ขอบคุณที่อยู่ข้างกันเสมอ 🥰",
-    "ทุกวันกับเธอคือวันพิเศษสำหรับฉัน 💖"
-];
-
-function randomLoveMessage() {
-    const randomIndex = Math.floor(Math.random() * loveMessages.length);
-    const loveMessageElement = document.getElementById("love-message");
-    loveMessageElement.innerHTML = loveMessages[randomIndex];
-    loveMessageElement.classList.remove("hidden");
+function showLoveMessage() {
+  const messages = [
+    "รักแพรวาที่สุดเลย",
+    "คิดถึงทุกวันเลยนะ",
+    "ขอบคุณที่อยู่กับเค้า",
+    "แพรวาคือโลกทั้งใบของเค้า",
+    "อยากอยู่ด้วยกันทุกวันเลยน้าาา",
+    "แพรวาน่ารักที่สุดในโลก!"
+  ];
+  const random = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById("love-message").innerText = random;
 }
-
-// เพิ่มเพลงจาก YouTube (กำหนด id ของเพลง)
-const audioElement = new Audio("https://www.youtube.com/watch?v=OYPiXBIgvJ8"); // เปลี่ยนไปใช้ URL ของเพลงที่คุณต้องการ
-audioElement.loop = true;  // ให้เพลงเล่นวนลูป
-audioElement.play();

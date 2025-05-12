@@ -133,3 +133,10 @@ canvas#heartCanvas {
     transform: translateY(-100vh) rotate(45deg);
     opacity: 0;
   }
+.love-days {
+  margin-top: 40px;
+  font-size: 1.4em;
+  color: #ff3399;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
+}

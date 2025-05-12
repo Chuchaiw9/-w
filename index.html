@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครบรอบ 1 เดือนของเรา</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บเซอร์ไพรส์วันครบรอบ 1 เดือน</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ข้อความเลื่อน -->
-  <div class="scrolling-text">
-    <p>รักแพรวามากที่สุดในโลกเลย ทุกวินาทีที่มีแพรวาคือที่สุดในชีวิต</p>
-  </div>
 
-  <!-- วิดีโอเพลงจาก YouTube -->
-  <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/OYPiXBIgvJ8?autoplay=1&loop=1&playlist=OYPiXBIgvJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
-
-  <!-- กล่องคำบอกรัก -->
-  <div class="container">
-    <h1>ครบรอบ 1 เดือนของเรา!</h1>
+    <!-- ข้อความส่วนบน -->
+    <h1>🎉 ขอต้อนรับสู่เว็บเซอร์ไพรส์วันครบรอบ 1 เดือน 🎉</h1>
+    
+    <!-- ตัวนับถอยหลัง -->
     <div id="countdown" class="countdown"></div>
 
+    <!-- ข้อความเลื่อน -->
+    <div class="scrolling-text">รักเธอนะ! ทุกวันคือความพิเศษกับเรา 💖</div>
+
+    <!-- กล่องของขวัญ -->
+    <div class="gift-box">
+        <div class="gift-message">
+            ของขวัญพิเศษให้เธอในวันครบรอบ 1 เดือน! 🎁
+        </div>
+    </div>
+
+    <!-- วิดีโอ YouTube -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OYPiXBIgvJ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- ปุ่มสุ่มคำบอกรัก -->
     <div class="love-section">
-      <button class="love-button" onclick="showLoveMessage()">สุ่มคำบอกรัก</button>
-      <div id="loveMessage" class="love-message"></div>
+        <button class="love-button" onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
+        <p id="love-message" class="love-message hidden"></p>
     </div>
 
-    <div id="giftBox" class="gift-box hidden">
-      <div id="giftMessage" class="gift-message"></div>
-    </div>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 วันครบรอบ 1 เดือน | แพรวา รักมากๆนะ 💕</p>
+    </footer>
 
-  <footer>
-    <p>สร้างด้วยใจเพื่อแพรวา จากคนที่รักเธอที่สุดในจักรวาล</p>
-  </footer>
+    <!-- เชื่อมกับ JS -->
+    <script src="script.js"></script>
 
-  <script src="script.js"></script>
 </body>
 </html>

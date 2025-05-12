@@ -51,13 +51,17 @@ function drawHearts() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < hearts.length; i++) {
     let h = hearts[i];
+    ctx.save();
+    ctx.translate(h.x, h.y);
+    ctx.scale(h.size / 30, h.size / 30); // ปรับขนาดหัวใจ
     ctx.beginPath();
+    ctx.moveTo(0, -10);
+    ctx.bezierCurveTo(-15, -30, -40, -5, 0, 20);
+    ctx.bezierCurveTo(40, -5, 15, -30, 0, -10);
     ctx.fillStyle = "#ff66a3";
-    ctx.moveTo(h.x, h.y);
-    ctx.arc(h.x - h.size / 4, h.y, h.size / 2, 0, Math.PI * 2);
-    ctx.arc(h.x + h.size / 4, h.y, h.size / 2, 0, Math.PI * 2);
-    ctx.lineTo(h.x, h.y + h.size);
     ctx.fill();
+    ctx.restore();
+
     h.y -= h.speed;
   }
   hearts = hearts.filter(h => h.y + h.size > 0);

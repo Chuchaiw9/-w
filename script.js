@@ -94,3 +94,8 @@ function update() {
 update(); // เรียกใช้ฟังก์ชันนี้ทันที
 
 setInterval(update, 1000); // อัพเดททุกๆ 1 วินาที
+
+function toggleLetter() {
+  const envelope = document.querySelector('.envelope');
+  envelope.classList.toggle('open');
+}

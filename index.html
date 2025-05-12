@@ -2,45 +2,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครบรอบรักของเรา</title>
+  <title>ครบรอบของบอยกับแพรวา</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- แถบบอกรักแบบเลื่อน -->
-  <div class="top-marquee-box">
-    <div class="top-marquee-text">
-      สุขสันต์วันครบรอบนะ แพรวา! รักมากที่สุดในจักรวาลเลยน้าาา
-    </div>
-  </div>  <!-- พื้นที่หลัก -->  <div class="container">
-    <h1>เราคบกันมาแล้ว</h1>
-    <p id="daysTogether">...</p><div class="heart"></div>
-
-<!-- นับถอยหลังถึงครบรอบเดือน -->
-<h2>เหลืออีก...</h2>
-<p id="countdown">...</p>
-
-<!-- ปุ่มสุ่มคำบอกรัก -->
-<button id="love-button" onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
-<p id="love-message"></p>
-
-<!-- เกมเล็ก ๆ -->
-<div class="games">
-  <button onclick="playGuessNumber()">เกมทายเลขรัก</button>
-  <button onclick="playLoveQuiz()">เกมทดสอบรักแท้</button>
+  <div class="top-banner">รักแพรวาที่สุดในจักรวาลเลยนะ!</div>  <div class="main">
+    <h1>ครบรอบของเรา</h1><div class="image-row">
+  <img src="https://cdn.discordapp.com/attachments/1208742242521587732/1371355203542188082/1746856342235.png" alt="บอย">
+  <div class="heart">❤️</div>
+  <img src="https://cdn.discordapp.com/attachments/1208742242521587732/1371355203835531395/1746856327108.png" alt="แพรวา">
 </div>
 
-<!-- ข้อความเซอร์ไพรส์เมื่อถึงวันครบรอบ -->
-<div id="surprise-message" class="hidden">
-  <h2>เซอร์ไพรส์! สุขสันต์วันครบรอบเดือนแรกนะ แพรวา!</h2>
-  <p>ขอบคุณที่อยู่ด้วยกัน ถึงจะไกลแต่ใจก็ใกล้เสมอ</p>
+<div class="counter-box">
+  <p>เราคบกันมาแล้ว</p>
+  <h2 id="daysTogether">0</h2>
+  <p>วัน</p>
 </div>
 
-<!-- พื้นที่ใส่ภาพและหัวใจ -->
-<div class="images-row">
-  <img src="you.png" alt="คุณ" class="person-img">
-  <div class="heart-pulse"></div>
-  <img src="praewa.png" alt="แพรวา" class="person-img">
+<div class="countdown-box">
+  <p>จะถึงวันครบรอบ 1 เดือนในอีก</p>
+  <div id="countdown"></div>
+</div>
+
+<div class="love-button-box">
+  <button onclick="showLoveMessage()">สุ่มคำบอกรักแพรวา</button>
+  <p id="loveMessage"></p>
 </div>
 
   </div>  <script src="script.js"></script></body>
-  </html>
+</html>

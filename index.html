@@ -37,14 +37,23 @@
       <p>อย่าลืมยิ้มให้กันนะ!</p>
     </div>
   </div>
-<div class="letter-container">
-  <div class="envelope" onclick="toggleLetter()">
-    <div class="flap"></div>
-    <div class="letter">
-      <p id="letterText">แพรวาน่ารักที่สุดเลยนะ เค้ารักแพรวามาก ๆ ขอบคุณที่อยู่ข้างกันเสมอ</p>
+
+  <!-- ซองจดหมาย -->
+  <div class="letter-container">
+    <div class="envelope" id="envelope" onclick="toggleLetter()">
+      <div class="flap"></div>
+      <div class="letter">
+        <p id="letterText">แพรวาน่ารักที่สุดเลยนะ เค้ารักแพรวามาก ๆ ขอบคุณที่อยู่ข้างกันเสมอ</p>
+      </div>
     </div>
   </div>
-</div>
-  <script src="script.js"></script>
+
+  <script>
+    // การเปิดปิดซองจดหมาย
+    const envelope = document.getElementById('envelope');
+    function toggleLetter() {
+      envelope.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>

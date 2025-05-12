@@ -108,6 +108,7 @@ iframe.video {
   padding-bottom: 150px;
 }
 
+/* จดหมายแบบใหม่ */
 .letter-container {
   display: flex;
   justify-content: center;
@@ -116,61 +117,71 @@ iframe.video {
 
 .envelope {
   position: relative;
-  width: 300px;
-  height: 200px;
-  background: linear-gradient(45deg, #ff66a3, #ff3385);  /* ไล่สีชมพู */
-  border-radius: 10px;
+  width: 320px;
+  height: 220px;
+  background: linear-gradient(135deg, #ff99bb, #ff66a3);
+  border-radius: 12px;
   cursor: pointer;
   perspective: 1000px;
   transition: transform 0.5s;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);  /* เพิ่มเงาให้ดูสมจริง */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  background: #ff3385;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: transform 0.6s;
+  transform-origin: top;
+  z-index: 3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .envelope.open .flap {
   transform: rotateX(-180deg);
 }
 
-.flap {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #ff3385;
-  border-radius: 10px;
-  transform-origin: top;
-  transition: transform 0.6s;
-  z-index: 2;
-}
-
 .letter {
   position: absolute;
   width: 90%;
-  height: 90%;
-  background: #f8e0e0;  /* สีชมพูอ่อน */
-  color: #6a1b9a;  /* สีม่วง */
-  top: 5%;
+  height: 85%;
+  top: 7%;
   left: 5%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s, transform 0.4s;
-  z-index: 1;
+  background: #fff0f5;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #6a1b9a;
+  font-size: 1.2em;
   font-family: 'Itim', cursive;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อยให้กระดาษ */
+  padding: 25px;
+  box-sizing: border-box;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 2;
+  background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+  background-size: 100px;
+  background-repeat: repeat;
 }
 
 .envelope.open .letter {
   opacity: 1;
   transform: translateY(0);
+  animation: bounce 0.6s ease-out;
 }
 
 @keyframes bounce {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%   { transform: translateY(30px); opacity: 0; }
+  60%  { transform: translateY(-10px); opacity: 1; }
   100% { transform: translateY(0); }
 }
 
-.envelope.open .letter {
-  animation: bounce 0.6s ease-out;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }

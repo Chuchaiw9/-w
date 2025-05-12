@@ -1,5 +1,5 @@
-// วันที่เริ่มต้น (17 เมษายน 2025)
-const startDate = new Date('2025-04-17');
+// วันที่ครบรอบ (17 พฤษภาคม 2025)
+const anniversaryDate = new Date('2025-05-17');
 const countdownElement = document.getElementById('countdown');
 const giftBox = document.getElementById('giftBox');
 const giftMessage = document.getElementById('giftMessage');
@@ -7,14 +7,16 @@ const giftMessage = document.getElementById('giftMessage');
 // ฟังก์ชันคำนวณและแสดงการนับถอยหลัง
 function updateCountdown() {
   const today = new Date();
-  const diffTime = startDate.getTime() - today.getTime();
-  const diffDays = Math.floor(diffTime / (1000 * 3600 * 24));
-
-  if (diffDays <= 0) {
-    countdownElement.textContent = 'ถึงวันที่ครบรอบแล้ว!';
+  const diffTime = anniversaryDate.getTime() - today.getTime();
+  
+  if (diffTime <= 0) {
+    countdownElement.textContent = 'ถึงวันครบรอบแล้ว!';
     showGift();
   } else {
-    countdownElement.textContent = `เหลือเวลา ${diffDays} วัน ถึงวันครบรอบ!`;
+    const days = Math.floor(diffTime / (1000 * 3600 * 24));
+    const hours = Math.floor((diffTime % (1000 * 3600 * 24)) / (1000 * 3600));
+    const minutes = Math.floor((diffTime % (1000 * 3600)) / (1000 * 60));
+    countdownElement.textContent = `เหลือเวลา ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ถึงวันครบรอบ!`;
   }
 }
 

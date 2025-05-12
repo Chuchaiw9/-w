@@ -1,4 +1,3 @@
-// script.js
 const targetDate = new Date("2025-05-17T00:00:00");
 const countdownEl = document.getElementById("countdown");
 const popup = document.getElementById("anniversaryPopup");

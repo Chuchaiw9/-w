@@ -84,10 +84,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const startDate = new Date("2025-04-17"); // วันเริ่มคบ
-setInterval(() => {
-  const today = new Date();
+function update() {
+  const today = new Date(); // ใช้วันปัจจุบัน
   const diffTime = today - startDate;
-  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  document.getElementById("loveDays").textContent = `เราอยู่ด้วยกันมาแล้ว ${days} วัน`;
-}, 1000);
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // คำนวณเป็นจำนวนวัน
+  document.getElementById("loveDays").textContent = `เราอยู่ด้วยกันมาแล้ว ${days} วัน`; // แสดงผล
+}
 
+update(); // เรียกใช้ฟังก์ชันนี้ทันที
+
+setInterval(update, 1000); // อัพเดททุกๆ 1 วินาที

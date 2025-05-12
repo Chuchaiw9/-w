@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บนับถอยหลังครบรอบ</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>รักแพรวา</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="header">รักแพรวา - ครบรอบ 17 เมษายน 2025</div>
-    <div id="countdown"></div>
-    <button class="btn" onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
-    <div class="love-messages" id="loveMessageBox"></div>
-
-    <script src="script.js"></script>
+  <div class="top-banner">รักแพรวาของเค้า - ครบรอบ 17 เม.ย. 2025</div>
+  <div class="container">
+    <h1>รักแพรวาทุกวันเลยนะ</h1>
+    <div class="countdown-box">
+      <h2>เวลาเหลือถึงวันครบรอบถัดไป</h2>
+      <div id="countdown"></div>
+    </div>
+    <div class="love-box">
+      <button onclick="randomLoveMessage()">สุ่มคำบอกรัก</button>
+      <p id="loveMessageBox"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

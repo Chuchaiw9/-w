@@ -6,32 +6,26 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCountdown() {
     const now = new Date();
     const diff = targetDate - now;
+
     if (diff <= 0) {
-      countdownEl.textContent = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!";
+      countdownEl.innerHTML = `<span class="countdown-end">วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!</span>`;
       popup.style.display = "flex";
       return;
     }
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    countdownEl.textContent = `เหลืออีก ${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ`;
+    countdownEl.innerHTML = `
+      <div class="time-box"><span>${days}</span><small>วัน</small></div>
+      <div class="time-box"><span>${hours}</span><small>ชม.</small></div>
+      <div class="time-box"><span>${minutes}</span><small>นาที</small></div>
+      <div class="time-box"><span>${seconds}</span><small>วิ</small></div>
+    `;
   }
 
   setInterval(updateCountdown, 1000);
-  updateCountdown(); // เรียกทันทีด้วยครั้งหนึ่งก่อนเริ่มนับจริง
-
-  // ฟังก์ชันสุ่มคำบอกรัก
-  window.showLoveMessage = function () {
-    const messages = [
-      "รักแพรวามากที่สุดในโลก!",
-      "ถึงจะอยู่ไกลแต่ใจใกล้เสมอ",
-      "คิดถึงเธอทุกวันเลยนะ",
-      "อยู่ด้วยกันตลอดไปนะ",
-      "แพรวาคือคนพิเศษของเค้า"
-    ];
-    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-    document.getElementById("love-message").textContent = randomMsg;
-  };
+  updateCountdown();
 });

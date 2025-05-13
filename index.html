@@ -6,30 +6,17 @@
   <title>ครบรอบของเรา</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet" />
+  <style>
+    .countdown {
+      font-size: 1.6em;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
   <marquee class="love-marquee">แพรวาน่ารักที่สุดในโลกเลยนะ ขอบคุณที่อยู่ข้างกันเสมอ</marquee>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const loveButton = document.querySelector(".love-button");
-    const loveMessage = document.getElementById("love-message");
-
-    loveButton.addEventListener("click", function () {
-      const messages = [
-        "รักแพรวามากที่สุดในโลกเลยย!",
-        "ถึงจะอยู่ไกลแต่ใจใกล้เสมอ",
-        "คิดถึงอ้วนทุกวันเลยนะ",
-        "อยู่ด้วยกันตลอดไปนะ",
-        "แพรวาคือคนพิเศษของเค้า",
-        "เค้ารักอ้วน",
-        "อยู่กับเค้าไปนานๆดลยนะไอดื้อ"
-      ];
-      const randomIndex = Math.floor(Math.random() * messages.length);
-      loveMessage.textContent = messages[randomIndex];
-    });
-  });
-  </script>
   <div class="container">
     <h1 class="heading">อีกไม่กี่วันก็จะครบ 1 เดือนแล้ว!</h1>
     <div id="countdown" class="countdown"></div>
@@ -41,7 +28,7 @@
     <button onclick="showLoveMessage()" class="love-button">สุ่มคำบอกรัก</button>
     <div id="love-message" class="love-message"></div>
 
-    <div class="popup" id="anniversaryPopup">
+    <div class="popup" id="anniversaryPopup" style="display: none;">
       <div class="popup-content">
         <h2>สุขสันต์วันครบรอบ 1 เดือน!</h2>
         <p>เค้ารักแพรวามาก ๆ นะ ขอบคุณที่อยู่ข้างกันเสมอ ถึงเราจะอยู่ไกลกันแต่ใจก็ใกล้กันตลอดเลยนะ</p>
@@ -51,14 +38,12 @@
 
     <canvas id="heartCanvas"></canvas>
 
-    <!-- เนื้อหาเพิ่มด้านล่าง -->
     <div class="extra-content">
       <p>เลื่อนลงมาเค้ามีอะไรจะบอกอ้วนนน</p>
       <p>เค้ารักอ้วนนะ😛💖</p>
     </div>
   </div>
 
-  <!-- ซองจดหมาย -->
   <div class="letter-container">
     <div class="envelope" id="envelope" onclick="toggleLetter()">
       <div class="flap"></div>
@@ -69,10 +54,55 @@
   </div>
 
   <script>
-    // การเปิดปิดซองจดหมาย
+    // นับถอยหลัง
+    const countdownElement = document.getElementById("countdown");
+    const anniversaryDate = new Date("2025-05-17T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = anniversaryDate - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!";
+        document.getElementById("anniversaryPopup").style.display = "block";
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.textContent = `เหลือเวลาอีก ${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // สุ่มคำบอกรัก
+    function showLoveMessage() {
+      const messages = [
+        "รักแพรวามากที่สุดในโลกเลยย!",
+        "ถึงจะอยู่ไกลแต่ใจใกล้เสมอ",
+        "คิดถึงอ้วนทุกวันเลยนะ",
+        "อยู่ด้วยกันตลอดไปนะ",
+        "แพรวาคือคนพิเศษของเค้า",
+        "เค้ารักอ้วน",
+        "อยู่กับเค้าไปนานๆดลยนะไอดื้อ"
+      ];
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      document.getElementById("love-message").textContent = messages[randomIndex];
+    }
+
+    // ซองจดหมาย
     const envelope = document.getElementById('envelope');
     function toggleLetter() {
       envelope.classList.toggle('open');
+    }
+
+    function closePopup() {
+      document.getElementById("anniversaryPopup").style.display = "none";
     }
   </script>
 </body>

@@ -56,14 +56,14 @@
   <script>
     // นับถอยหลัง
     const countdownElement = document.getElementById("countdown");
-    const anniversaryDate = new Date("2025-05-17T00:00:00");
+    const anniversaryDate = new Date("2025-06-17T00:00:00");
 
     function updateCountdown() {
       const now = new Date();
       const diff = anniversaryDate - now;
 
       if (diff <= 0) {
-        countdownElement.textContent = "วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!";
+        countdownElement.textContent = "วันนี้คือวันครบรอบ 2 เดือนของเราแล้ว!";
         document.getElementById("anniversaryPopup").style.display = "block";
         clearInterval(countdownInterval);
         return;

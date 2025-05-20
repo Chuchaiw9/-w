@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const targetDate = new Date("2025-05-17T00:00:00");
+  const targetDate = new Date("2025-06-17T00:00:00");
   const countdownEl = document.getElementById("countdown");
   const popup = document.getElementById("anniversaryPopup");
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      countdownEl.innerHTML = `<span class="countdown-end">วันนี้คือวันครบรอบ 1 เดือนของเราแล้ว!</span>`;
+      countdownEl.innerHTML = `<span class="countdown-end">วันนี้คือวันครบรอบ 2 เดือนของเราแล้ว!</span>`;
       popup.style.display = "flex";
       return;
     }

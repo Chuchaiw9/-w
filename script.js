@@ -29,3 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 });
+let currentPage = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+  if (currentPage < pages.length) {
+    pages[currentPage].classList.add("flipped");
+    currentPage++;
+  } else {
+    // ถ้าหมดแล้ว รีเซ็ต (หรือทำอะไรตามใจ)
+    pages.forEach(page => page.classList.remove("flipped"));
+    currentPage = 0;
+  }
+}
